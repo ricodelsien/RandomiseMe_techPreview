@@ -1703,6 +1703,13 @@
   function applyTranslations(){
     document.documentElement.setAttribute("lang", currentLang);
 
+    document.querySelectorAll(".iconish").forEach(el=>{
+  const icon = (el.getAttribute("data-icon") || "").trim();
+  let label = (el.getAttribute("aria-label") || el.textContent || "").trim();
+  if(icon) label = label.replace(icon, "").trim();
+  el.setAttribute("data-label", label);
+});
+
     document.querySelectorAll("[data-i18n]").forEach(el=>{
       const key = el.getAttribute("data-i18n");
       el.textContent = t(key);
