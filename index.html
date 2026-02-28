@@ -67,6 +67,9 @@
         </div>
       </div>
 
+      <div id="filterBar" class="filter-bar" hidden aria-label="Tag filter"></div>
+      <p id="filterInfo" class="filter-info" hidden></p>
+
       <div id="result" aria-live="polite"></div>
 
       <div id="resultActions" class="result-actions" hidden>
@@ -164,6 +167,21 @@
       </div>
 
       <p class="export-note" data-i18n="export.grouped_note">TXT is grouped by tags.</p>
+    </div>
+  </div>
+
+  <!-- Tag Modal -->
+  <div id="tagModal" class="modal" aria-hidden="true">
+    <div class="modal-content modal-compact" role="dialog" aria-modal="true" aria-label="Tag">
+      <button class="close-btn" id="tagCloseBtn" aria-label="Close">&times;</button>
+      <h3 data-i18n="tag.title">Set Tag</h3>
+      <div class="tag-input-row">
+        <input id="tagInput" type="text" data-i18n-placeholder="tag.placeholder" placeholder="New tag name…" aria-label="Tag name"/>
+        <button id="tagApplyBtn" class="btn btn-sm btn-tag-apply" data-i18n="tag.apply">Apply</button>
+      </div>
+      <p id="tagExistingLabel" class="tag-label" hidden data-i18n="tag.existing">Existing tags:</p>
+      <div id="tagSuggestions" class="tag-suggestions"></div>
+      <button id="tagClearBtn" class="btn btn-xs btn-ghost-danger tag-remove-btn" data-i18n="tag.remove">Remove tag</button>
     </div>
   </div>
 

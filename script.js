@@ -35,6 +35,17 @@ document.addEventListener("DOMContentLoaded", function () {
     resultActions: document.getElementById("resultActions"),
     randomBtn: document.getElementById("randomBtn"),
     emptyState: document.getElementById("emptyState"),
+    filterBar: document.getElementById("filterBar"),
+    filterInfo: document.getElementById("filterInfo"),
+
+    // tag modal
+    tagModal: document.getElementById("tagModal"),
+    tagCloseBtn: document.getElementById("tagCloseBtn"),
+    tagInput: document.getElementById("tagInput"),
+    tagSuggestions: document.getElementById("tagSuggestions"),
+    tagApplyBtn: document.getElementById("tagApplyBtn"),
+    tagClearBtn: document.getElementById("tagClearBtn"),
+    tagExistingLabel: document.getElementById("tagExistingLabel"),
 
     // multi-list UI
     listSelect: document.getElementById("listSelect"),
@@ -197,6 +208,13 @@ document.addEventListener("DOMContentLoaded", function () {
   // Last picked project name (for result action buttons)
   let lastPicked = null;
 
+  // Tag filter: null = all, string = tag name, "__untagged__" = items without tag
+  let activeTagFilter = null;
+  const UNTAGGED_KEY = "__untagged__";
+
+  // Tag modal: which item is being tagged
+  let tagModalTargetName = null;
+
   function rebuildSets() {
     projectsSet = new Set(projects.map((p) => String(p).toLowerCase()));
     progressSet = new Set(inProgress.map((p) => String(p.name || "").toLowerCase()));
@@ -245,6 +263,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // transient UI state resets
     lastPicked = null;
     lastUndo = null;
+    activeTagFilter = null;
     clearToast();
 
     if (persist) scheduleSave();
@@ -256,6 +275,7 @@ document.addEventListener("DOMContentLoaded", function () {
       scheduleRender("done");
       scheduleRender("history");
       scheduleRender("resultActions");
+      scheduleRender("filterBar");
     }
   }
 
@@ -462,6 +482,7 @@ document.addEventListener("DOMContentLoaded", function () {
       scheduleRender("progress");
       scheduleRender("projects");
       scheduleRender("done");
+      scheduleRender("filterBar");
       showToast(t("toast.group_cleared"));
       return;
     }
@@ -471,7 +492,51 @@ document.addEventListener("DOMContentLoaded", function () {
     scheduleRender("progress");
     scheduleRender("projects");
     scheduleRender("done");
+    scheduleRender("filterBar");
     showToast(t("toast.group_set", { group: g }));
+  }
+
+  // ---------- tag filter ----------
+
+  function getUniqueTags() {
+    const tags = new Map();
+    for (const name of projects) {
+      const g = groupOf(name);
+      if (g) tags.set(g, (tags.get(g) || 0) + 1);
+    }
+    return tags;
+  }
+
+  function getAllUniqueTags() {
+    const tags = new Set();
+    for (const name of projects) {
+      const g = groupOf(name);
+      if (g) tags.add(g);
+    }
+    for (const item of inProgress) {
+      const g = groupOf(item.name);
+      if (g) tags.add(g);
+    }
+    for (const item of doneProjects) {
+      const g = groupOf(item.name);
+      if (g) tags.add(g);
+    }
+    return tags;
+  }
+
+  function getFilteredIndices() {
+    if (!activeTagFilter) return projects.map((_, i) => i);
+    if (activeTagFilter === UNTAGGED_KEY) {
+      return projects.reduce((acc, p, i) => { if (!groupOf(p)) acc.push(i); return acc; }, []);
+    }
+    return projects.reduce((acc, p, i) => { if (groupOf(p) === activeTagFilter) acc.push(i); return acc; }, []);
+  }
+
+  function isItemMatchingFilter(name) {
+    if (!activeTagFilter) return true;
+    const g = groupOf(name);
+    if (activeTagFilter === UNTAGGED_KEY) return !g;
+    return g === activeTagFilter;
   }
 
   function pushHistory(type, name) {
@@ -910,17 +975,50 @@ document.addEventListener("DOMContentLoaded", function () {
     showToast(t("toast.cleared_history"), true);
   }
 
-  function promptGroupForName(name) {
+  function openTagModalForName(name) {
+    tagModalTargetName = name;
     const current = groupOf(name);
-    const entered = prompt(t("prompt.group"), current);
-    if (entered === null) return; // cancel
-    setGroup(name, entered);
+
+    if (DOM.tagInput) DOM.tagInput.value = current;
+
+    const allTags = getAllUniqueTags();
+    if (DOM.tagSuggestions) {
+      if (allTags.size === 0) {
+        DOM.tagSuggestions.innerHTML = "";
+        if (DOM.tagExistingLabel) DOM.tagExistingLabel.hidden = true;
+      } else {
+        if (DOM.tagExistingLabel) DOM.tagExistingLabel.hidden = false;
+        let html = "";
+        for (const tag of [...allTags].sort((a, b) => a.localeCompare(b, undefined, { sensitivity: "base" }))) {
+          const sel = tag === current ? " selected" : "";
+          html += `<button class="tag-chip${sel}" data-tag="${escapeHTML(tag)}">${escapeHTML(tag)}</button>`;
+        }
+        DOM.tagSuggestions.innerHTML = html;
+      }
+    }
+
+    openModal(DOM.tagModal, DOM.tagInput);
+  }
+
+  function applyTagFromModal() {
+    if (!tagModalTargetName) return;
+    const val = DOM.tagInput ? DOM.tagInput.value.trim() : "";
+    setGroup(tagModalTargetName, val);
+    closeModal(DOM.tagModal);
+    tagModalTargetName = null;
+  }
+
+  function clearTagFromModal() {
+    if (!tagModalTargetName) return;
+    setGroup(tagModalTargetName, "");
+    closeModal(DOM.tagModal);
+    tagModalTargetName = null;
   }
 
   // ---------- rendering ----------
 
   // Batch renders to next animation frame (prevents repeated DOM rebuilds per action)
-  const renderFlags = { progress: false, projects: false, done: false, history: false, resultActions: false };
+  const renderFlags = { progress: false, projects: false, done: false, history: false, resultActions: false, filterBar: false };
   let renderQueued = false;
   function scheduleRender(which) {
     if (which && renderFlags.hasOwnProperty(which)) renderFlags[which] = true;
@@ -957,6 +1055,11 @@ document.addEventListener("DOMContentLoaded", function () {
       renderFlags.resultActions = false;
       updateResultActions();
     }
+
+    if (renderFlags.filterBar) {
+      renderFlags.filterBar = false;
+      renderFilterBar();
+    }
   }
 
   function renderProjects() {
@@ -968,6 +1071,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const ariaGroup = escapeHTML(t("aria.group"));
     const ariaPrio = escapeHTML(t("aria.prio"));
 
+    const hasFilter = !!activeTagFilter;
+
     let html = "";
     for (let i = 0; i < projects.length; i++) {
       const name = projects[i];
@@ -975,9 +1080,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const tag = g ? `<span class="item-tag">${escapeHTML(g)}</span>` : "";
       const pr = prioOf(name);
       const prTxt = starsFor(pr);
+      const dimmed = hasFilter && !isItemMatchingFilter(name) ? " dimmed" : "";
 
       html +=
-        `<li class="item">` +
+        `<li class="item${dimmed}">` +
           `<span class="item-text">${tag}${escapeHTML(name)}</span>` +
           `<div class="item-actions">` +
             `<button class="icon-btn" data-action="prio" data-index="${i}" title="${ariaPrio}" aria-label="${ariaPrio}">${escapeHTML(prTxt)}</button>` +
@@ -992,6 +1098,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if (DOM.emptyState) {
       DOM.emptyState.hidden = projects.length > 0;
     }
+
+    scheduleRender("filterBar");
   }
 
   function renderProgress() {
@@ -1096,28 +1204,77 @@ document.addEventListener("DOMContentLoaded", function () {
     DOM.resultActions.hidden = !lastPicked;
   }
 
+  // ---------- filter bar ----------
+
+  function renderFilterBar() {
+    const bar = DOM.filterBar;
+    if (!bar) return;
+
+    const tags = getUniqueTags();
+    const untaggedCount = projects.filter(p => !groupOf(p)).length;
+
+    if (tags.size === 0 && untaggedCount === projects.length) {
+      bar.hidden = true;
+      bar.innerHTML = "";
+      if (activeTagFilter) activeTagFilter = null;
+      if (DOM.filterInfo) DOM.filterInfo.hidden = true;
+      return;
+    }
+
+    if (activeTagFilter && activeTagFilter !== UNTAGGED_KEY && !tags.has(activeTagFilter)) {
+      activeTagFilter = null;
+    }
+
+    bar.hidden = false;
+
+    const allActive = !activeTagFilter ? " active" : "";
+    let html = `<button class="filter-chip${allActive}" data-filter="">${escapeHTML(t("filter.all"))} <span class="chip-count">${projects.length}</span></button>`;
+
+    for (const [tag, count] of [...tags.entries()].sort((a, b) => a[0].localeCompare(b[0], undefined, { sensitivity: "base" }))) {
+      const active = activeTagFilter === tag ? " active" : "";
+      html += `<button class="filter-chip${active}" data-filter="${escapeHTML(tag)}">${escapeHTML(tag)} <span class="chip-count">${count}</span></button>`;
+    }
+
+    if (untaggedCount > 0 && tags.size > 0) {
+      const active = activeTagFilter === UNTAGGED_KEY ? " active" : "";
+      html += `<button class="filter-chip${active}" data-filter="${UNTAGGED_KEY}">${escapeHTML(t("filter.untagged"))} <span class="chip-count">${untaggedCount}</span></button>`;
+    }
+
+    bar.innerHTML = html;
+
+    if (DOM.filterInfo) {
+      if (activeTagFilter) {
+        const filtered = getFilteredIndices().length;
+        DOM.filterInfo.textContent = t("filter.scope", { count: filtered, total: projects.length });
+        DOM.filterInfo.hidden = false;
+      } else {
+        DOM.filterInfo.hidden = true;
+      }
+    }
+  }
+
   // ---------- randomiser ----------
 
-  function pickWeightedIndex() {
-    // default weight = 1; priority 1..3 => weight 2..4
+  function pickWeightedIndexFrom(indices) {
     let total = 0;
-    const weights = new Array(projects.length);
-    for (let i = 0; i < projects.length; i++) {
+    const weights = [];
+    for (const i of indices) {
       const w = 1 + prioOf(projects[i]);
-      weights[i] = w;
+      weights.push(w);
       total += w;
     }
     const r = Math.random() * total;
     let acc = 0;
-    for (let i = 0; i < weights.length; i++) {
-      acc += weights[i];
-      if (r <= acc) return i;
+    for (let j = 0; j < weights.length; j++) {
+      acc += weights[j];
+      if (r <= acc) return indices[j];
     }
-    return Math.max(0, projects.length - 1);
+    return indices[indices.length - 1];
   }
 
   function roll() {
-    if (projects.length === 0) {
+    const eligible = getFilteredIndices();
+    if (eligible.length === 0) {
       alert(t("alert.no_projects"));
       return;
     }
@@ -1130,15 +1287,15 @@ document.addEventListener("DOMContentLoaded", function () {
     button.classList.add("rolling");
 
     const interval = setInterval(() => {
-      const randomIndex = Math.floor(Math.random() * projects.length);
-      resultDiv.textContent = projects[randomIndex];
+      const ri = eligible[Math.floor(Math.random() * eligible.length)];
+      resultDiv.textContent = projects[ri];
     }, 80);
 
     setTimeout(() => {
       clearInterval(interval);
       button.classList.remove("rolling");
 
-      const finalIndex = pickWeightedIndex();
+      const finalIndex = pickWeightedIndexFrom(eligible);
       lastPicked = projects[finalIndex];
 
       const exclamations = t("exclamations");
@@ -1157,7 +1314,6 @@ document.addEventListener("DOMContentLoaded", function () {
       resultDiv.classList.add("winner-glow");
 
       pushHistory("roll", lastPicked);
-      // Move rolled item to "In progress" so the active list stays clean
       moveToProgressByName(lastPicked, { fromIndex: finalIndex });
       updateResultActions();
 
@@ -1523,7 +1679,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (action === "done") markDone(index);
       if (action === "delete") deleteActive(index);
-      if (action === "group") promptGroupForName(projects[index]);
+      if (action === "group") openTagModalForName(projects[index]);
       if (action === "prio") cyclePrio(projects[index]);
     });
   }
@@ -1539,7 +1695,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (action === "done") markDoneFromProgress(index);
       if (action === "back") backToActiveFromProgress(index);
       if (action === "delete") deleteProgress(index);
-      if (action === "group") promptGroupForName(inProgress[index].name);
+      if (action === "group") openTagModalForName(inProgress[index].name);
       if (action === "prio") cyclePrio(inProgress[index].name);
     });
   }
@@ -1554,7 +1710,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (action === "restore") restoreFromDone(index);
       if (action === "delete") deleteDone(index);
-      if (action === "group") promptGroupForName(doneProjects[index].name);
+      if (action === "group") openTagModalForName(doneProjects[index].name);
       if (action === "prio") cyclePrio(doneProjects[index].name);
     });
   }
@@ -1635,11 +1791,76 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // ---------- filter bar ----------
+
+  if (DOM.filterBar) {
+    DOM.filterBar.addEventListener("click", (e) => {
+      const chip = e.target.closest(".filter-chip");
+      if (!chip) return;
+      const filter = chip.dataset.filter;
+      if (filter === "" || filter === activeTagFilter) {
+        activeTagFilter = null;
+      } else {
+        activeTagFilter = filter;
+      }
+      scheduleRender("filterBar");
+      scheduleRender("projects");
+    });
+  }
+
+  // ---------- tag modal ----------
+
+  if (DOM.tagCloseBtn) {
+    DOM.tagCloseBtn.addEventListener("click", () => {
+      closeModal(DOM.tagModal);
+      tagModalTargetName = null;
+    });
+  }
+
+  if (DOM.tagModal) {
+    window.addEventListener("click", (event) => {
+      if (event.target === DOM.tagModal) {
+        closeModal(DOM.tagModal);
+        tagModalTargetName = null;
+      }
+    });
+  }
+
+  if (DOM.tagApplyBtn) {
+    DOM.tagApplyBtn.addEventListener("click", applyTagFromModal);
+  }
+
+  if (DOM.tagClearBtn) {
+    DOM.tagClearBtn.addEventListener("click", clearTagFromModal);
+  }
+
+  if (DOM.tagInput) {
+    DOM.tagInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        applyTagFromModal();
+      }
+    });
+  }
+
+  if (DOM.tagSuggestions) {
+    DOM.tagSuggestions.addEventListener("click", (e) => {
+      const chip = e.target.closest(".tag-chip");
+      if (!chip || !chip.dataset.tag) return;
+      if (!tagModalTargetName) return;
+      setGroup(tagModalTargetName, chip.dataset.tag);
+      closeModal(DOM.tagModal);
+      tagModalTargetName = null;
+    });
+  }
+
   // global key handling
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
       closeModal(helpModal);
       closeModal(exportModal);
+      closeModal(DOM.tagModal);
+      tagModalTargetName = null;
       clearToast();
     }
   });
@@ -1747,6 +1968,7 @@ document.addEventListener("DOMContentLoaded", function () {
   scheduleRender("done");
   scheduleRender("history");
   scheduleRender("resultActions");
+  scheduleRender("filterBar");
 
   // ---------- Firebase sync ----------
 

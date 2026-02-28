@@ -96,6 +96,15 @@
 
     "empty.hint": "Add items or import a list to get started.",
 
+    "filter.all": "All",
+    "filter.untagged": "Untagged",
+    "filter.scope": "Shuffling {count} of {total}",
+    "tag.title": "Set Tag",
+    "tag.placeholder": "New tag name…",
+    "tag.apply": "Apply",
+    "tag.remove": "Remove tag",
+    "tag.existing": "Existing tags:",
+
     "exclamations": [
       "Oh look:",
       "Take that:",
@@ -203,6 +212,15 @@
     "toast.prio_cleared": "Priorität entfernt.",
 
     "empty.hint": "Füge Einträge hinzu oder importiere eine Liste.",
+
+    "filter.all": "Alle",
+    "filter.untagged": "Ohne Tag",
+    "filter.scope": "{count} von {total} werden gemischt",
+    "tag.title": "Tag setzen",
+    "tag.placeholder": "Neuer Tag-Name…",
+    "tag.apply": "Übernehmen",
+    "tag.remove": "Tag entfernen",
+    "tag.existing": "Vorhandene Tags:",
 
     "exclamations": [
       "Schau mal:",

@@ -1,0 +1,49 @@
+[debug] [2026-02-28T19:52:39.491Z] ----------------------------------------------------------------------
+[debug] [2026-02-28T19:52:39.495Z] Command:       /usr/local/bin/node /usr/local/bin/firebase init
+[debug] [2026-02-28T19:52:39.495Z] CLI Version:   15.8.0
+[debug] [2026-02-28T19:52:39.496Z] Platform:      darwin
+[debug] [2026-02-28T19:52:39.496Z] Node Version:  v24.14.0
+[debug] [2026-02-28T19:52:39.496Z] Time:          Sat Feb 28 2026 20:52:39 GMT+0100 (Central European Standard Time)
+[debug] [2026-02-28T19:52:39.496Z] ----------------------------------------------------------------------
+[debug] 
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/nicosiedler/Documents/Cursor_Projects/RandomiseMe_techPreview-main
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] 
+[debug] [2026-02-28T19:53:02.104Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-28T19:53:02.104Z] > authorizing via signed-in user (nico.siedler@googlemail.com)
+[debug] [2026-02-28T19:53:02.105Z] Checked if tokens are valid: true, expires at: 1772311419739
+[debug] [2026-02-28T19:53:02.105Z] Checked if tokens are valid: true, expires at: 1772311419739
+[debug] [2026-02-28T19:53:02.106Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/randomiseme-5ede0 [none]
+[debug] [2026-02-28T19:53:02.859Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/randomiseme-5ede0 200
+[debug] [2026-02-28T19:53:02.859Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/randomiseme-5ede0 {"projectId":"randomiseme-5ede0","projectNumber":"143976127352","displayName":"RandomiseMe","name":"projects/randomiseme-5ede0","resources":{"hostingSite":"randomiseme-5ede0"},"state":"ACTIVE","etag":"1_29748afe-fb5f-488f-bb68-3748516067db"}
+[info] i  Using project randomiseme-5ede0 (RandomiseMe) . 
+[info] 
+=== Hosting Setup
+[debug] [2026-02-28T19:53:02.878Z] Checked if tokens are valid: true, expires at: 1772311419739
+[debug] [2026-02-28T19:53:02.878Z] Checked if tokens are valid: true, expires at: 1772311419739
+[debug] [2026-02-28T19:53:02.878Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/randomiseme-5ede0 [none]
+[debug] [2026-02-28T19:53:03.178Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/randomiseme-5ede0 200
+[debug] [2026-02-28T19:53:03.178Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/randomiseme-5ede0 {"projectId":"randomiseme-5ede0","projectNumber":"143976127352","displayName":"RandomiseMe","name":"projects/randomiseme-5ede0","resources":{"hostingSite":"randomiseme-5ede0"},"state":"ACTIVE","etag":"1_29748afe-fb5f-488f-bb68-3748516067db"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
