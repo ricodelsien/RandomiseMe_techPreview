@@ -1,25 +1,21 @@
-<!-- Project: RandomiseMe! -->
-<!-- Cause: shuffle-pick large numbers of projects -->
+<!-- RandomiseMe! v1.0 -->
+<!-- Shuffle-pick projects from your list -->
 <!-- Author: Nico Siedler (git: ricodelsien) -->
-<!-- Date: 2026-02-17 -->
-<!-- Version: 0.9a -->
+<!-- Date: 2026-02-28 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover"/>
 
   <title>RandomiseMe!</title>
 
-  <!-- iOS / Android icons -->
-  <link id="appleTouchIcon" rel="apple-touch-icon" sizes="180x180" href="icon.png"/>
-  <link id="appIcon" rel="icon" type="image/png" sizes="512x512" href="icon.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="icon.png"/>
+  <link rel="icon" type="image/png" sizes="512x512" href="icon.png"/>
 
-  <!-- PWA -->
-  <link id="manifestLink" rel="manifest" href="manifest.json"/>
-  <meta id="themeColorMeta" name="theme-color" content="#000000"/>
+  <link rel="manifest" href="manifest.json"/>
+  <meta name="theme-color" content="#0d1117"/>
 
-  <!-- iOS Web App Mode -->
   <meta name="apple-mobile-web-app-capable" content="yes"/>
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
   <meta name="apple-mobile-web-app-title" content="RandomiseMe"/>
@@ -29,13 +25,20 @@
 
 <body>
   <main class="app" role="application" aria-label="RandomiseMe">
+
     <header class="header">
-      <img src="logo/Randomise.png" alt="RandomiseMe"/>
-      <p class="flavour-text" data-i18n-html="flavour.text">Hey, let’s pick a new project! :)</p>
+      <div class="header-brand">
+        <img src="icon.png" alt="" class="app-icon"/>
+        <h1 class="app-title">RandomiseMe!</h1>
+      </div>
+      <button id="langToggle" class="lang-toggle" aria-label="Language">EN</button>
     </header>
 
+    <p class="tagline" data-i18n-html="flavour.text">Hey, let's pick a new project! :)</p>
+
     <section class="controls" aria-label="Controls">
-      <form id="projectForm" class="project-form" autocomplete="off">
+
+      <form id="projectForm" class="input-row" autocomplete="off">
         <input
           id="projectInput"
           type="text"
@@ -45,54 +48,56 @@
           placeholder="Enter project name"
           aria-label="Project name"
         />
-        <button type="submit" class="btn-success iconish" data-icon="➕" data-i18n="btn.add" data-i18n-aria="btn.add">Add project</button>
+        <button type="submit" class="btn btn-add" data-i18n-aria="btn.add" aria-label="Add">+</button>
       </form>
 
-      <div class="import-section">
-        <label class="custom-file-button btn-info iconish" data-icon="📂" for="fileInput" data-i18n="btn.import" data-i18n-aria="btn.import">📂 Import list (txt or csv)</label>
+      <div class="action-row">
+        <label class="btn btn-import" for="fileInput" data-i18n="btn.import" data-i18n-aria="btn.import" aria-label="Import list">📂 Import</label>
         <input id="fileInput" type="file" accept=".txt,.csv" multiple hidden/>
+        <button id="randomBtn" class="btn btn-shuffle" data-i18n="btn.roll" data-i18n-aria="btn.roll" aria-label="Shuffle">🎲 Shuffle!</button>
       </div>
 
       <div class="listbar" aria-label="Lists">
-        <div class="listbar-left">
-          <label for="listSelect" class="sr-only" data-i18n="lists.label">List</label>
-          <select id="listSelect" data-i18n-aria="lists.label" aria-label="List"></select>
-        </div>
+        <label for="listSelect" class="sr-only" data-i18n="lists.label">List</label>
+        <select id="listSelect" data-i18n-aria="lists.label" aria-label="List"></select>
         <div class="listbar-actions">
-          <button id="newListBtn" class="btn-info iconish" data-icon="🧾" data-i18n="lists.new" data-i18n-aria="lists.new">🧾 New list</button>
-          <button id="renameListBtn" class="btn-neutral iconish" data-icon="✏️" data-i18n="lists.rename" data-i18n-aria="lists.rename">✏️ Rename</button>
-          <button id="deleteListBtn" class="btn-danger iconish" data-icon="🗑" data-i18n="lists.delete" data-i18n-aria="lists.delete">🗑 Delete</button>
+          <button id="newListBtn" class="btn-icon" data-i18n-aria="lists.new" aria-label="New list" title="New list">+</button>
+          <button id="renameListBtn" class="btn-icon" data-i18n-aria="lists.rename" aria-label="Rename" title="Rename">✏️</button>
+          <button id="deleteListBtn" class="btn-icon btn-icon-danger" data-i18n-aria="lists.delete" aria-label="Delete" title="Delete">🗑</button>
         </div>
-      </div>
-
-      <div class="button-group">
-        <button id="clearBtn" class="btn-danger iconish" data-icon="🗑" data-i18n="btn.clear" data-i18n-aria="btn.clear">🗑 Clear all UFOs</button>
-        <button id="randomBtn" class="btn-accent iconish" data-icon="🎲" data-i18n="btn.roll" data-i18n-aria="btn.roll">🎲 Let's roll!</button>
       </div>
 
       <div id="result" aria-live="polite"></div>
 
       <div id="resultActions" class="result-actions" hidden>
-        <button id="markPickedDoneBtn" class="btn-success iconish" data-icon="✅" data-i18n="btn.mark_done" data-i18n-aria="btn.mark_done">✅ Mark as done</button>
-        <button id="backPickedBtn" class="btn-neutral iconish" data-icon="↩️" data-i18n="btn.back" data-i18n-aria="btn.back">↩️ Back</button>
-        <button id="copyPickedBtn" class="btn-neutral iconish" data-icon="📋" data-i18n="btn.copy" data-i18n-aria="btn.copy">📋 Copy</button>
+        <button id="markPickedDoneBtn" class="btn btn-sm btn-result-action" data-i18n="btn.mark_done" data-i18n-aria="btn.mark_done">✅ Done</button>
+        <button id="backPickedBtn" class="btn btn-sm btn-result-action" data-i18n="btn.back" data-i18n-aria="btn.back">↩️ Back</button>
+        <button id="copyPickedBtn" class="btn btn-sm btn-result-action" data-i18n="btn.copy" data-i18n-aria="btn.copy">📋 Copy</button>
       </div>
+
     </section>
 
     <section class="scroll-area" aria-label="Lists">
-      <div id="progressWrap" class="progress-wrap" hidden>
-        <h4 class="list-title" data-i18n="heading.progress">In progress:</h4>
+
+      <div id="progressWrap" class="section-block progress-wrap" hidden>
+        <h3 class="section-title" data-i18n="heading.progress">In progress:</h3>
         <ul id="progressList"></ul>
       </div>
 
-      <h4 class="list-title" data-i18n="heading.list">My UFOs:</h4>
-      <ul id="projectList"></ul>
+      <div class="section-block">
+        <div class="section-header">
+          <h3 class="section-title" data-i18n="heading.list">My UFOs:</h3>
+          <button id="clearBtn" class="btn btn-xs btn-ghost-danger" data-i18n="btn.clear" data-i18n-aria="btn.clear">🗑 Clear all</button>
+        </div>
+        <ul id="projectList"></ul>
+        <p id="emptyState" class="empty-state" hidden data-i18n="empty.hint">Add items or import a list to get started.</p>
+      </div>
 
       <div class="panels">
         <details id="donePanel" class="panel">
           <summary><span data-i18n="heading.done">Done:</span> <span class="panel-count" id="doneCount">0</span></summary>
           <div class="panel-actions">
-            <button id="clearDoneBtn" class="btn-danger iconish" data-icon="🧹" data-i18n="btn.clear_done" data-i18n-aria="btn.clear_done">🧹 Clear done</button>
+            <button id="clearDoneBtn" class="btn btn-xs btn-ghost-danger" data-i18n="btn.clear_done" data-i18n-aria="btn.clear_done">🧹 Clear</button>
           </div>
           <ul id="doneList"></ul>
         </details>
@@ -100,68 +105,49 @@
         <details id="historyPanel" class="panel">
           <summary><span data-i18n="heading.history">History:</span> <span class="panel-count" id="historyCount">0</span></summary>
           <div class="panel-actions">
-            <button id="copyHistoryBtn" class="btn-neutral iconish" data-icon="📋" data-i18n="btn.copy_history" data-i18n-aria="btn.copy_history">📋 Copy history</button>
-            <button id="clearHistoryBtn" class="btn-danger iconish" data-icon="🗑" data-i18n="btn.clear_history" data-i18n-aria="btn.clear_history">🗑 Clear history</button>
+            <button id="copyHistoryBtn" class="btn btn-xs" data-i18n="btn.copy_history" data-i18n-aria="btn.copy_history">📋 Copy</button>
+            <button id="clearHistoryBtn" class="btn btn-xs btn-ghost-danger" data-i18n="btn.clear_history" data-i18n-aria="btn.clear_history">🗑 Clear</button>
           </div>
           <ul id="historyList"></ul>
         </details>
       </div>
+
     </section>
 
     <footer class="footer">
-      <div class="footer-row">
-        <div class="lang-select">
-          <label for="langSelect" data-i18n="lang.label">Language</label>
-          <select id="langSelect" data-i18n-aria="lang.label" aria-label="Language"></select>
-        </div>
-
-        <div class="footer-actions">
-          <button id="exportBtn" class="btn-neutral iconish" data-icon="⬇️" data-i18n="btn.export" data-i18n-aria="btn.export">⬇️ Export</button>
-          <button id="helpBtn" class="help-button btn-info iconish" data-icon="❓" data-i18n="help.btn" data-i18n-aria="help.btn">❓ HowTo</button>
-        </div>
+      <div class="footer-actions">
+        <button id="exportBtn" class="btn btn-sm" data-i18n="btn.export" data-i18n-aria="btn.export">⬇️ Export</button>
+        <button id="helpBtn" class="btn btn-sm btn-help" data-i18n="help.btn" data-i18n-aria="help.btn">❓ Help</button>
       </div>
-
       <p class="footer-text">
-        <span data-i18n="footer.created">RandomiseMe! – created by Nico Siedler</span><br/>
-        <span data-i18n="footer.license">Version 0.9a 02/2026 published under GPL3</span>
+        <span data-i18n="footer.created">RandomiseMe! – created by Nico Siedler</span> ·
+        <span data-i18n="footer.license">v1.0 GPL3</span>
         <span id="buildDate"></span>
       </p>
     </footer>
+
   </main>
 
   <!-- Help Modal -->
   <div id="helpModal" class="modal" aria-hidden="true">
     <div class="modal-content" role="dialog" aria-modal="true" aria-label="Help">
-      <button class="close-btn" aria-label="Close">×</button>
+      <button class="close-btn" aria-label="Close">&times;</button>
       <h3 data-i18n="help.title">How to use RandomiseMe</h3>
-      <p data-i18n-html="help.body">1. Add projects manually or import a .txt or .csv list.<br/><br/>2. Click "Let's roll!" to randomly select a single project.<br/><br/>3. Use "Clear all UFOs" to reset your list.<br/><br/>Imported lists can be separated by commas, semicolons, line breaks or tabs.</p>
-
-      <hr class="modal-sep"/>
-
-      <p class="help-hint" data-i18n="help.update_hint">If the Home Screen app does not update properly:</p>
-      <button id="reloadBtn" class="reload-button btn-info iconish" data-icon="🔄" data-i18n="help.reload" data-i18n-aria="help.reload">🔄 Reload app</button>
-
-      <hr class="modal-sep"/>
-
-      <p class="help-hint" data-i18n="iconpicker.title">App icon color (for installation)</p>
-      <div class="icon-picker" role="group" aria-label="Icon color">
-        <button class="icon-chip" data-icon-variant="default" title="Default" aria-label="Default"></button>
-        <button class="icon-chip" data-icon-variant="blue" title="Blue" aria-label="Blue"></button>
-        <button class="icon-chip" data-icon-variant="green" title="Green" aria-label="Green"></button>
-        <button class="icon-chip" data-icon-variant="orange" title="Orange" aria-label="Orange"></button>
-        <button class="icon-chip" data-icon-variant="pink" title="Pink" aria-label="Pink"></button>
-        <button class="icon-chip" data-icon-variant="violet" title="Violet" aria-label="Violet"></button>
-        <button class="icon-chip" data-icon-variant="yellow" title="Yellow" aria-label="Yellow"></button>
+      <div class="help-body" data-i18n-html="help.body">
+        1. Add projects manually or import a .txt/.csv list.<br/><br/>
+        2. Tap Shuffle to randomly pick one project.<br/><br/>
+        3. Use the action buttons to manage your items.
       </div>
-      <p class="help-note" data-i18n="iconpicker.note">After changing, add to Home Screen / install again.</p>
-
+      <hr class="modal-sep"/>
+      <p class="help-hint" data-i18n="help.update_hint">If the Home Screen app does not update properly:</p>
+      <button id="reloadBtn" class="btn btn-sm" data-i18n="help.reload" data-i18n-aria="help.reload">🔄 Reload app</button>
     </div>
   </div>
 
   <!-- Export Modal -->
   <div id="exportModal" class="modal" aria-hidden="true">
     <div class="modal-content" role="dialog" aria-modal="true" aria-label="Export">
-      <button class="close-btn" id="exportCloseBtn" aria-label="Close">×</button>
+      <button class="close-btn" id="exportCloseBtn" aria-label="Close">&times;</button>
       <h3 data-i18n="export.title">Export</h3>
       <p class="help-hint" data-i18n="export.hint">Choose what to export:</p>
 
@@ -172,18 +158,21 @@
         <label class="check"><input id="expHistory" type="checkbox" checked/> <span data-i18n="export.history">History</span></label>
       </div>
 
-      <div class="button-group export-buttons">
-        <button id="exportTxtBtn" class="btn-info iconish" data-icon="⬇️" data-i18n="export.txt" data-i18n-aria="export.txt">⬇️ TXT</button>
-        <button id="exportCsvBtn" class="btn-info iconish" data-icon="⬇️" data-i18n="export.csv" data-i18n-aria="export.csv">⬇️ CSV</button>
+      <div class="export-buttons">
+        <button id="exportTxtBtn" class="btn btn-sm" data-i18n="export.txt" data-i18n-aria="export.txt">⬇️ TXT</button>
+        <button id="exportCsvBtn" class="btn btn-sm" data-i18n="export.csv" data-i18n-aria="export.csv">⬇️ CSV</button>
       </div>
 
-      <p class="help-note" data-i18n="export.grouped_note">TXT is grouped by tags.</p>
+      <p class="export-note" data-i18n="export.grouped_note">TXT is grouped by tags.</p>
     </div>
   </div>
 
   <!-- Toast / Undo -->
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
   <script src="i18n.js"></script>
   <script src="script.js"></script>
 </body>

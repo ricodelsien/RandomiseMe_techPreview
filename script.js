@@ -6,61 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("gesturestart", (e) => e.preventDefault());
   document.addEventListener("dblclick", (e) => e.preventDefault());
 
-  // App icon variant (useful BEFORE installing / adding to Home Screen)
-  const ICON_VARIANTS = {
-    default: { manifest: "manifest.json", icon: "icon.png" },
-    blue:    { manifest: "manifest-blue.json", icon: "icon/icon_blue.png" },
-    green:   { manifest: "manifest-green.json", icon: "icon/icon_green.png" },
-    orange:  { manifest: "manifest-orange.json", icon: "icon/icon_orange.png" },
-    pink:    { manifest: "manifest-pink.json", icon: "icon/icon_pink.png" },
-    violet:  { manifest: "manifest-violet.json", icon: "icon/icon_violet.png" },
-    yellow:  { manifest: "manifest-yellow.json", icon: "icon/icon_yellow.png" },
-  };
-
-  function getInitialIconVariant() {
-    try {
-      const url = new URL(window.location.href);
-      const fromQuery = url.searchParams.get("icon");
-      if (fromQuery && ICON_VARIANTS[fromQuery]) return fromQuery;
-
-      const stored = localStorage.getItem("iconVariant");
-      if (stored && ICON_VARIANTS[stored]) return stored;
-    } catch {}
-    return "default";
-  }
-
-  function applyIconVariant(variant, { persist = true } = {}) {
-    const v = ICON_VARIANTS[variant] ? variant : "default";
-
-    const manifestLink = document.getElementById("manifestLink");
-    if (manifestLink) manifestLink.setAttribute("href", ICON_VARIANTS[v].manifest);
-
-    const appleIcon = document.getElementById("appleTouchIcon");
-    if (appleIcon) appleIcon.setAttribute("href", ICON_VARIANTS[v].icon);
-
-    const appIcon = document.getElementById("appIcon");
-    if (appIcon) appIcon.setAttribute("href", ICON_VARIANTS[v].icon);
-
-    // reflect in URL (so the install prompt uses the chosen variant)
-    try {
-      const url = new URL(window.location.href);
-      if (v === "default") url.searchParams.delete("icon");
-      else url.searchParams.set("icon", v);
-      history.replaceState(null, "", url.toString());
-    } catch {}
-
-    if (persist) {
-      try { localStorage.setItem("iconVariant", v); } catch {}
-    }
-
-    // highlight selection in modal
-    document.querySelectorAll(".icon-chip").forEach((b) => {
-      b.classList.toggle("is-selected", b.dataset.iconVariant === v);
-    });
-  }
-
-  applyIconVariant(getInitialIconVariant(), { persist: false });
-
   const STORAGE_KEYS = {
     // v2 multi-list storage
     listsV2: "rmListsV2",
@@ -89,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     result: document.getElementById("result"),
     resultActions: document.getElementById("resultActions"),
     randomBtn: document.getElementById("randomBtn"),
-    langSelect: document.getElementById("langSelect"),
+    emptyState: document.getElementById("emptyState"),
 
     // multi-list UI
     listSelect: document.getElementById("listSelect"),
@@ -325,56 +270,8 @@ document.addEventListener("DOMContentLoaded", function () {
   setActiveList(activeListId, { persist: false });
 
 
-  // ---------- language select (English alphabetical order) ----------
-
-  const LANG_META = {
-    cs: { native: "Čeština", english: "Czech", flag: "🇨🇿" },
-    da: { native: "Dansk", english: "Danish", flag: "🇩🇰" },
-    de: { native: "Deutsch", english: "German", flag: "🇩🇪" },
-    el: { native: "Ελληνικά", english: "Greek", flag: "🇬🇷" },
-    en: { native: "English", english: "English", flag: "🇬🇧" },
-    es: { native: "Español", english: "Spanish", flag: "🇪🇸" },
-    fi: { native: "Suomi", english: "Finnish", flag: "🇫🇮" },
-    fr: { native: "Français", english: "French", flag: "🇫🇷" },
-    it: { native: "Italiano", english: "Italian", flag: "🇮🇹" },
-    nb: { native: "Norsk bokmål", english: "Norwegian", flag: "🇳🇴" },
-    nl: { native: "Nederlands", english: "Dutch", flag: "🇳🇱" },
-    pl: { native: "Polski", english: "Polish", flag: "🇵🇱" },
-    pt: { native: "Português", english: "Portuguese", flag: "🇵🇹" },
-    ru: { native: "Русский", english: "Russian", flag: "🇷🇺" },
-    sv: { native: "Svenska", english: "Swedish", flag: "🇸🇪" },
-    tr: { native: "Türkçe", english: "Turkish", flag: "🇹🇷" },
-    uk: { native: "Українська", english: "Ukrainian", flag: "🇺🇦" }
-  };
-
-  function buildLanguageSelectEnglishAlphabetical() {
-    const selectEl = DOM.langSelect;
-    if (!selectEl || !window.i18n) return;
-
-    const available =
-      (typeof window.i18n.available === "function") ? window.i18n.available() : [];
-
-    const known = available
-      .filter((code) => LANG_META[code])
-      .map((code) => ({ code, ...LANG_META[code] }))
-      .sort((a, b) => a.english.localeCompare(b.english, undefined, { sensitivity: "base" }));
-
-    const unknown = available
-      .filter((code) => !LANG_META[code])
-      .map((code) => ({ code, name: code.toUpperCase(), native: code.toUpperCase(), flag: "🏳️" }))
-      .sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: "base" }));
-
-    selectEl.innerHTML = "";
-    for (const it of [...known, ...unknown]) {
-      const opt = document.createElement("option");
-      opt.value = it.code;
-      opt.textContent = `${it.flag} ${it.native}`;
-      selectEl.appendChild(opt);
-    }
-
-    const current = (typeof window.i18n.getLang === "function") ? window.i18n.getLang() : "en";
-    selectEl.value = current;
-  }
+  // ---------- language ----------
+  // Language toggle is handled by i18n.js; we just re-render on change.
 
   // ---------- helpers ----------
 
@@ -403,6 +300,10 @@ document.addEventListener("DOMContentLoaded", function () {
       localStorage.setItem(STORAGE_KEYS.listsV2, JSON.stringify({ version: 2, lists }));
       localStorage.setItem(STORAGE_KEYS.activeListIdV2, activeListId);
     } catch {}
+
+    if (typeof FirebaseSync !== "undefined" && FirebaseSync.isEnabled()) {
+      FirebaseSync.push(lists, activeListId);
+    }
   }
 
   // Defer storage writes so UI updates feel instant on mobile.
@@ -1087,6 +988,10 @@ document.addEventListener("DOMContentLoaded", function () {
         `</li>`;
     }
     list.innerHTML = html;
+
+    if (DOM.emptyState) {
+      DOM.emptyState.hidden = projects.length > 0;
+    }
   }
 
   function renderProgress() {
@@ -1681,11 +1586,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // icon picker buttons (changes manifest/icon for the NEXT install)
-  document.querySelectorAll(".icon-chip").forEach((btn) => {
-    btn.addEventListener("click", () => applyIconVariant(btn.dataset.iconVariant));
-  });
-
   // export modal
   const exportModal = document.getElementById("exportModal");
   const exportBtn = document.getElementById("exportBtn");
@@ -1833,21 +1733,116 @@ document.addEventListener("DOMContentLoaded", function () {
 
   renderReady = true;
   renderListSelect();
-  buildLanguageSelectEnglishAlphabetical();
 
   // Re-render lists on language change (button aria labels, history verbs)
-  if (DOM.langSelect) {
-    DOM.langSelect.addEventListener("change", () => {
-      scheduleRender("progress");
-      scheduleRender("projects");
-      scheduleRender("done");
-      scheduleRender("history");
-    });
-  }
+  document.addEventListener("langchange", () => {
+    scheduleRender("progress");
+    scheduleRender("projects");
+    scheduleRender("done");
+    scheduleRender("history");
+  });
 
   scheduleRender("progress");
   scheduleRender("projects");
   scheduleRender("done");
   scheduleRender("history");
   scheduleRender("resultActions");
+
+  // ---------- Firebase sync ----------
+
+  if (typeof FirebaseSync !== "undefined" && FirebaseSync.init()) {
+    FirebaseSync.listen((data) => {
+      if (!data || !data.lists) return;
+      lists = data.lists.map(coerceListShape);
+      const newActiveId = data.activeListId || (lists[0] ? lists[0].id : "");
+      setActiveList(newActiveId, { persist: false });
+      try {
+        localStorage.setItem(STORAGE_KEYS.listsV2, JSON.stringify({ version: 2, lists }));
+        localStorage.setItem(STORAGE_KEYS.activeListIdV2, newActiveId);
+      } catch {}
+    });
+
+    FirebaseSync.pull().then((data) => {
+      if (!data || !data.lists) return;
+      lists = data.lists.map(coerceListShape);
+      const newActiveId = data.activeListId || (lists[0] ? lists[0].id : "");
+      setActiveList(newActiveId);
+    });
+  }
 });
+
+// ---------- Firebase Sync Module ----------
+
+const FirebaseSync = (() => {
+  let db = null;
+  let deviceId = null;
+  let enabled = false;
+  let lastPushTimestamp = 0;
+
+  function init() {
+    if (typeof firebase === "undefined" || !window.FIREBASE_CONFIG) return false;
+    const cfg = window.FIREBASE_CONFIG;
+    if (!cfg.apiKey || !cfg.projectId) return false;
+
+    try {
+      if (!firebase.apps.length) firebase.initializeApp(cfg);
+      db = firebase.firestore();
+      deviceId = getDeviceId();
+      enabled = true;
+      return true;
+    } catch (e) {
+      console.warn("[FirebaseSync] Init failed:", e);
+      return false;
+    }
+  }
+
+  function getDeviceId() {
+    let id = localStorage.getItem("rm_device_id");
+    if (!id) {
+      id = "d_" + Math.random().toString(36).slice(2) + Date.now().toString(36);
+      localStorage.setItem("rm_device_id", id);
+    }
+    return id;
+  }
+
+  async function push(listsData, activeListId) {
+    if (!enabled || !db) return;
+    const now = Date.now();
+    lastPushTimestamp = now;
+    try {
+      await db.collection("randomiseme").doc(deviceId).set({
+        lists: JSON.parse(JSON.stringify(listsData)),
+        activeListId,
+        updatedAt: now,
+        version: 2
+      });
+    } catch (e) {
+      console.warn("[FirebaseSync] Push failed:", e);
+    }
+  }
+
+  async function pull() {
+    if (!enabled || !db) return null;
+    try {
+      const doc = await db.collection("randomiseme").doc(deviceId).get();
+      if (doc.exists) return doc.data();
+    } catch (e) {
+      console.warn("[FirebaseSync] Pull failed:", e);
+    }
+    return null;
+  }
+
+  function listen(callback) {
+    if (!enabled || !db) return;
+    db.collection("randomiseme").doc(deviceId).onSnapshot((doc) => {
+      if (!doc.exists) return;
+      const data = doc.data();
+      if (data.updatedAt && data.updatedAt <= lastPushTimestamp) return;
+      callback(data);
+    }, (err) => {
+      console.warn("[FirebaseSync] Listen error:", err);
+    });
+  }
+
+  return { init, push, pull, listen, isEnabled: () => enabled };
+})();

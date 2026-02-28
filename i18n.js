@@ -1,17 +1,17 @@
 (function(){
   const TRANSLATIONS = {
   "en": {
-    "lang.name": "🇬🇧 EN",
+    "lang.name": "EN",
     "lang.label": "Language",
-    "flavour.text": "Hey, let’s pick a new project! :)",
+    "flavour.text": "Hey, let's pick a new project! :)",
     "input.placeholder": "Enter project name",
     "btn.add": "Add",
-    "btn.import": "📂 Import list (txt or csv)",
+    "btn.import": "📂 Import",
 
     "lists.label": "List",
-    "lists.new": "🧾 New list",
-    "lists.rename": "✏️ Rename",
-    "lists.delete": "🗑 Delete",
+    "lists.new": "New list",
+    "lists.rename": "Rename",
+    "lists.delete": "Delete",
 
     "prompt.new_list": "New list name:",
     "prompt.rename_list": "Rename list:",
@@ -23,29 +23,27 @@
     "toast.list_deleted": "List deleted: {name}",
     "heading.progress": "In progress:",
     "heading.list": "My UFOs:",
-    "btn.clear": "🗑 Clear all UFOs",
-    "btn.roll": "🎲 Let's roll!",
+    "btn.clear": "🗑 Clear all",
+    "btn.roll": "🎲 Shuffle!",
 
     "heading.done": "Done:",
     "heading.history": "History:",
-    "btn.clear_done": "🧹 Clear done",
-    "btn.clear_history": "🗑 Clear history",
-    "btn.copy_history": "📋 Copy history",
-    "btn.mark_done": "✅ Mark as done",
+    "btn.clear_done": "🧹 Clear",
+    "btn.clear_history": "🗑 Clear",
+    "btn.copy_history": "📋 Copy",
+    "btn.mark_done": "✅ Done",
     "btn.back": "↩️ Back",
     "btn.copy": "📋 Copy",
     "btn.undo": "Undo",
 
-    "help.btn": "❓ HowTo",
+    "help.btn": "❓ Help",
     "help.title": "How to use RandomiseMe",
-    "help.body": "1. Add projects manually or import a .txt/.csv list.<br><br>2. Tap 🎲 to randomly pick one project. The picked item moves to <b>In progress</b> automatically.<br><br>3. ✅ marks items as done, ↩️ sends them back to the active list.<br><br>Imported lists may be separated by commas, semicolons, line breaks or tabs.<br><br>4. Use ☆/⭐ to set a priority (higher = picked more often).<br><br>5. 🗑 resets the active list (Done & History stay).<br><br>Note: Your list is stored locally in your browser. If you clear this site’s data, it will be lost.",
+    "help.body": "1. Add projects manually or import a .txt/.csv list.<br><br>2. Tap <b>Shuffle</b> to randomly pick one project. The picked item moves to <b>In progress</b> automatically.<br><br>3. ✅ marks items as done, ↩️ sends them back to the list.<br><br>Imported lists may be separated by commas, semicolons, line breaks or tabs.<br><br>4. Use ☆/⭐ to set a priority (higher = picked more often).<br><br>5. 🗑 clears the active list (Done & History stay).<br><br>Your data is stored locally in your browser.",
     "help.update_hint": "If the Home Screen app does not update properly:",
     "help.reload": "🔄 Reload app",
 
-    "iconpicker.note": "After changing, add to Home Screen / install again.",
-    "iconpicker.title": "App icon color (for installation)",
     "footer.created": "RandomiseMe! – created by Nico Siedler",
-    "footer.license": "Version 0.9a 02/2026 published under GPL3",
+    "footer.license": "v1.0 GPL3",
 
     "confirm.clear": "Clear all active projects? (Done & history stay.)",
     "confirm.clear_done": "Clear done list?",
@@ -96,11 +94,11 @@
     "toast.prio_set": "Priority: {prio}",
     "toast.prio_cleared": "Priority cleared.",
 
+    "empty.hint": "Add items or import a list to get started.",
+
     "exclamations": [
       "Oh look:",
-      "Bäm:",
       "Take that:",
-      "Well:",
       "Guess what:",
       "Plot twist:",
       "Lucky you:",
@@ -111,17 +109,17 @@
   },
 
   "de": {
-    "lang.name": "🇩🇪 DE",
+    "lang.name": "DE",
     "lang.label": "Sprache",
     "flavour.text": "Hallo, lass uns ein Projekt finden! :)",
     "input.placeholder": "Projekt eingeben",
     "btn.add": "Hinzufügen",
-    "btn.import": "📂 Liste importieren (.txt oder .csv)",
+    "btn.import": "📂 Import",
 
     "lists.label": "Liste",
-    "lists.new": "🧾 Neue Liste",
-    "lists.rename": "✏️ Umbenennen",
-    "lists.delete": "🗑 Löschen",
+    "lists.new": "Neue Liste",
+    "lists.rename": "Umbenennen",
+    "lists.delete": "Löschen",
 
     "prompt.new_list": "Name der neuen Liste:",
     "prompt.rename_list": "Liste umbenennen:",
@@ -133,31 +131,29 @@
     "toast.list_deleted": "Liste gelöscht: {name}",
     "heading.progress": "In Arbeit:",
     "heading.list": "Meine UFOs:",
-    "btn.clear": "🗑 Alle UFOs löschen",
-    "btn.roll": "🎲 Würfeln!",
+    "btn.clear": "🗑 Alle löschen",
+    "btn.roll": "🎲 Los!",
 
     "heading.done": "Erledigt:",
     "heading.history": "Verlauf:",
     "btn.clear_done": "🧹 Löschen",
     "btn.clear_history": "🗑 Löschen",
     "btn.copy_history": "📋 Kopieren",
-    "btn.mark_done": "✅ Erledigt!",
+    "btn.mark_done": "✅ Erledigt",
     "btn.back": "↩️ Zurück",
     "btn.copy": "📋 Kopieren",
     "btn.undo": "Rückgängig",
 
     "help.btn": "❓ Hilfe",
     "help.title": "So funktioniert RandomiseMe",
-    "help.body": "1. Projekte manuell hinzufügen oder eine .txt/.csv-Liste importieren.<br><br>2. Auf 🎲 tippen, um zufällig ein Projekt aus einer aktiven Liste auszuwählen. Das gezogene Projekt wandert automatisch nach <b>In Arbeit</b>.<br><br>3. ✅ markiert als erledigt, ↩️ holt es zurück in die aktive Liste.<br><br>Importierte Listen dürfen durch Kommata, Semikola, Zeilenumbrüche oder Tabs getrennt sein.<br><br>4. Mit ☆/⭐ wird eine Priorität gesetzt (Lostopfverfahren – höher = wird öfter gezogen).<br><br>5. 🗑 setzt die aktive Liste zurück (Erledigt & Verlauf bleiben erhalten).<br><br>Hinweis: Die Liste wird lokal im Browser gespeichert. Werden die Website-Daten dieser Seite gelöscht, müssen Listen neu importiert werden.",
+    "help.body": "1. Projekte manuell hinzufügen oder eine .txt/.csv-Liste importieren.<br><br>2. Auf <b>Los!</b> tippen, um zufällig ein Projekt auszuwählen. Das gezogene Projekt wandert automatisch nach <b>In Arbeit</b>.<br><br>3. ✅ markiert als erledigt, ↩️ holt es zurück in die aktive Liste.<br><br>Importierte Listen dürfen durch Kommata, Semikola, Zeilenumbrüche oder Tabs getrennt sein.<br><br>4. Mit ☆/⭐ wird eine Priorität gesetzt (höher = wird öfter gezogen).<br><br>5. 🗑 setzt die aktive Liste zurück (Erledigt & Verlauf bleiben erhalten).<br><br>Die Liste wird lokal im Browser gespeichert.",
     "help.update_hint": "Falls die Homescreen-App sich nicht richtig aktualisiert:",
     "help.reload": "🔄 App neu laden",
 
-    "iconpicker.note": "Nach dem Ändern neu zum Homescreen hinzufügen / neu installieren.",
-    "iconpicker.title": "App-Icon-Farbe (für Installation)",
-    "footer.created": "RandomiseMe! – erstellt von Nico Siedler (ricodelsien)",
-    "footer.license": "Version 0.9a 02/2026 veröffentlicht unter GPL3",
+    "footer.created": "RandomiseMe! – erstellt von Nico Siedler",
+    "footer.license": "v1.0 GPL3",
 
-    "confirm.clear": "Alle aktiven Projekte löschen? (Erledigt & Verlauf bleiben erhalten.)",
+    "confirm.clear": "Alle aktiven Projekte löschen? (Erledigt & Verlauf bleiben.)",
     "confirm.clear_done": "Erledigt-Liste wirklich leeren?",
     "confirm.clear_history": "Verlauf wirklich löschen?",
 
@@ -206,11 +202,12 @@
     "toast.prio_set": "Priorität: {prio}",
     "toast.prio_cleared": "Priorität entfernt.",
 
+    "empty.hint": "Füge Einträge hinzu oder importiere eine Liste.",
+
     "exclamations": [
       "Schau mal:",
       "Bäm:",
       "Na bitte:",
-      "Also:",
       "Rate mal:",
       "Plot Twist:",
       "Glück gehabt:",
@@ -218,1537 +215,84 @@
       "Tadaa:",
       "Et voilà:"
     ]
-  },
-
-  "fr": {
-    "lang.name": "🇫🇷 FR",
-    "lang.label": "Langue",
-    "flavour.text": "Salut, trouvons un projet ! :)",
-    "input.placeholder": "Nom de projet",
-    "btn.add": "Ajouter",
-    "btn.import": "📂 Importer une liste (txt ou csv)",
-    "heading.progress": "En cours :",
-    "heading.list": "Mes encours :",
-    "btn.clear": "🗑 Tout effacer",
-    "btn.roll": "🎲 On lance !",
-
-    "heading.done": "Terminé :",
-    "heading.history": "Historique :",
-    "btn.clear_done": "🧹 Vider terminés",
-    "btn.clear_history": "🗑 Effacer l’historique",
-    "btn.copy_history": "📋 Copier l’historique",
-    "btn.mark_done": "✅ Marquer comme terminé",
-    "btn.back": "↩️ Retour",
-    "btn.copy": "📋 Copier",
-    "btn.undo": "Annuler",
-
-    "help.btn": "❓ Quoi",
-    "help.title": "Comment utiliser RandomiseMe",
-    "help.body": "1. Ajoute des projets manuellement ou importe une liste .txt/.csv.<br><br>2. Appuie sur 🎲 pour tirer un projet au hasard. L’élément tiré passe automatiquement en <b>En cours</b>.<br><br>3. ✅ marque comme terminé, ↩️ renvoie dans la liste active.<br><br>Les listes importées peuvent être séparées par des virgules, des points-virgules, des retours à la ligne ou des tabulations.<br><br>4. Utilise ☆/⭐ pour définir une priorité (plus élevé = tiré plus souvent).<br><br>5. 🗑 réinitialise la liste active (Terminés & Historique restent).<br><br>Note : ta liste est stockée localement dans le navigateur. Si tu effaces les données du site, elle sera perdue.",
-    "help.update_hint": "Si l’app sur l’écran d’accueil ne se met pas à jour correctement :",
-    "help.reload": "🔄 Recharger l’app",
-
-    "iconpicker.note": "Après modification, ajoute / installe de nouveau.",
-    "iconpicker.title": "Couleur de l’icône (installation)",
-    "footer.created": "RandomiseMe! – créé par Nico Siedler",
-    "footer.license": "Version 0.9a 02/2026 publiée sous GPL3",
-
-    "confirm.clear": "Effacer tous les projets actifs ? (Terminés + historique restent.)",
-    "confirm.clear_done": "Vider la liste des terminés ?",
-    "confirm.clear_history": "Effacer l’historique ?",
-
-    "alert.no_projects": "Aucun projet n’a été ajouté !",
-    "alert.import_finished": "Import terminé : {count} nouveaux projets ajoutés.",
-    "alert.import_restored": "(+{count} restaurés)",
-    "alert.nothing_to_copy": "Rien à copier pour l’instant.",
-
-    "toast.copied": "Copié dans le presse-papiers.",
-    "toast.deleted": "Supprimé : {name}",
-    "toast.done": "Marqué terminé : {name}",
-    "toast.restored": "Restauré : {name}",
-    "toast.cleared_active": "Liste active effacée.",
-    "toast.cleared_done": "Liste des terminés vidée.",
-    "toast.cleared_history": "Historique effacé.",
-
-    "history.roll": "Tiré au sort",
-    "history.done": "Terminé",
-    "history.restore": "Restauré",
-    "history.delete": "Supprimé",
-
-    "aria.delete": "Supprimer",
-    "aria.done": "Marquer terminé",
-    "aria.restore": "Restaurer",
-    "aria.copy": "Copier",
-    "aria.back": "Retour à la liste",
-    "aria.prio": "Priorité",
-    "aria.undo": "Annuler",
-
-    "btn.export": "⬇️ Exporter",
-    "export.title": "Exporter",
-    "export.hint": "Choisissez quoi exporter :",
-    "export.progress": "En cours",
-    "export.active": "Actifs",
-    "export.done": "Terminés",
-    "export.history": "Historique",
-    "export.txt": "⬇️ TXT",
-    "export.csv": "⬇️ CSV",
-    "export.grouped_note": "Le TXT est groupé par tags.",
-    "export.ungrouped": "Sans tag",
-    "aria.group": "Définir un groupe",
-    "prompt.group": "Groupe / tag (vide = supprimer) :",
-    "toast.exported": "Export créé.",
-    "toast.group_set": "Groupe défini : {group}",
-    "toast.group_cleared": "Groupe supprimé.",
-    "toast.prio_set": "Priorité : {prio}",
-    "toast.prio_cleared": "Priorité supprimée.",
-
-    "exclamations": [
-      "Regarde :",
-      "Bam :",
-      "Tiens :",
-      "Alors :",
-      "Devine :",
-      "Plot twist :",
-      "Quelle chance :",
-      "C’est parti :",
-      "Tadaa :",
-      "Et voilà :"
-    ]
-  },
-
-  "it": {
-    "lang.name": "🇮🇹 IT",
-    "lang.label": "Lingua",
-    "flavour.text": "Ciao, troviamo un nuovo progetto! :)",
-    "input.placeholder": "Inserisci nome progetto",
-    "btn.add": "Aggiungi",
-    "btn.import": "📂 Importa lista (txt o csv)",
-    "heading.progress": "In corso:",
-    "heading.list": "I miei lavori in corso:",
-    "btn.clear": "🗑 Cancella tutto",
-    "btn.roll": "🎲 Via!",
-
-    "heading.done": "Fatto:",
-    "heading.history": "Cronologia:",
-    "btn.clear_done": "🧹 Svuota fatti",
-    "btn.clear_history": "🗑 Cancella cronologia",
-    "btn.copy_history": "📋 Copia cronologia",
-    "btn.mark_done": "✅ Segna come fatto",
-    "btn.back": "↩️ Indietro",
-    "btn.copy": "📋 Copia",
-    "btn.undo": "Annulla",
-
-    "help.btn": "❓ Guida",
-    "help.title": "Come usare RandomiseMe",
-    "help.body": "1. Aggiungi progetti a mano o importa una lista .txt/.csv.<br><br>2. Tocca 🎲 per scegliere un progetto a caso. L’elemento scelto passa automaticamente in <b>In corso</b>.<br><br>3. ✅ segna come fatto, ↩️ rimanda nella lista attiva.<br><br>Le liste importate possono essere separate da virgole, punti e virgola, a capo o tab.<br><br>4. Usa ☆/⭐ per impostare una priorità (più alta = scelto più spesso).<br><br>5. 🗑 azzera la lista attiva (Fatti & Cronologia restano).<br><br>Nota: la lista viene salvata localmente nel browser. Se cancelli i dati di questo sito, andrà persa.",
-    "help.update_hint": "Se l’app nella schermata Home non si aggiorna correttamente:",
-    "help.reload": "🔄 Ricarica app",
-
-    "iconpicker.note": "Dopo la modifica, aggiungi / reinstalla di nuovo.",
-    "iconpicker.title": "Colore dell’icona (installazione)",
-    "footer.created": "RandomiseMe! – creato da Nico Siedler",
-    "footer.license": "Versione 0.9a 02/2026 pubblicata sotto GPL3",
-
-    "confirm.clear": "Cancellare tutti i progetti attivi? (Fatti e cronologia restano.)",
-    "confirm.clear_done": "Svuotare la lista dei fatti?",
-    "confirm.clear_history": "Cancellare la cronologia?",
-
-    "alert.no_projects": "Non hai ancora aggiunto progetti!",
-    "alert.import_finished": "Import completato: aggiunti {count} nuovi progetti.",
-    "alert.import_restored": "(+{count} ripristinati)",
-    "alert.nothing_to_copy": "Niente da copiare per ora.",
-
-    "toast.copied": "Copiato negli appunti.",
-    "toast.deleted": "Eliminato: {name}",
-    "toast.done": "Segnato come fatto: {name}",
-    "toast.restored": "Ripristinato: {name}",
-    "toast.cleared_active": "Lista attiva svuotata.",
-    "toast.cleared_done": "Lista dei fatti svuotata.",
-    "toast.cleared_history": "Cronologia cancellata.",
-
-    "history.roll": "Estratto",
-    "history.done": "Fatto",
-    "history.restore": "Ripristinato",
-    "history.delete": "Eliminato",
-
-    "aria.delete": "Elimina",
-    "aria.done": "Segna come fatto",
-    "aria.restore": "Ripristina",
-    "aria.copy": "Copia",
-    "aria.back": "Torna alla lista",
-    "aria.prio": "Priorità",
-    "aria.undo": "Annulla",
-
-    "btn.export": "⬇️ Esporta",
-    "export.title": "Esporta",
-    "export.hint": "Scegli cosa esportare:",
-    "export.progress": "In corso",
-    "export.active": "Attivi",
-    "export.done": "Completati",
-    "export.history": "Cronologia",
-    "export.txt": "⬇️ TXT",
-    "export.csv": "⬇️ CSV",
-    "export.grouped_note": "Il TXT è raggruppato per tag.",
-    "export.ungrouped": "Senza tag",
-    "aria.group": "Imposta gruppo",
-    "prompt.group": "Gruppo / tag (vuoto = rimuovi):",
-    "toast.exported": "Export creato.",
-    "toast.group_set": "Gruppo impostato: {group}",
-    "toast.group_cleared": "Gruppo rimosso.",
-    "toast.prio_set": "Priorità: {prio}",
-    "toast.prio_cleared": "Priorità rimossa.",
-
-    "exclamations": [
-      "Guarda:",
-      "Bam:",
-      "Ecco:",
-      "Allora:",
-      "Indovina:",
-      "Colpo di scena:",
-      "Che fortuna:",
-      "Si parte:",
-      "Ta‑da:",
-      "Et voilà:"
-    ]
-  },
-
-  "es": {
-    "lang.name": "🇪🇸 ES",
-    "lang.label": "Idioma",
-    "flavour.text": "Hola! Vamos a elegir un proyecto! :)",
-    "input.placeholder": "Escribe el nombre del proyecto",
-    "btn.add": "Añadir",
-    "btn.import": "📂 Importar lista (txt o csv)",
-    "heading.progress": "En curso:",
-    "heading.list": "Mis proyectos pendientes:",
-    "btn.clear": "🗑 Borrar todo",
-    "btn.roll": "🎲 ¡A rodar!",
-
-    "heading.done": "Hecho:",
-    "heading.history": "Historial:",
-    "btn.clear_done": "🧹 Vaciar hechos",
-    "btn.clear_history": "🗑 Borrar historial",
-    "btn.copy_history": "📋 Copiar historial",
-    "btn.mark_done": "✅ Marcar como hecho",
-    "btn.back": "↩️ Volver",
-    "btn.copy": "📋 Copiar",
-    "btn.undo": "Deshacer",
-
-    "help.btn": "❓ Cómo se usa",
-    "help.title": "Cómo usar RandomiseMe",
-    "help.body": "1. Añade proyectos manualmente o importa una lista .txt/.csv.<br><br>2. Pulsa 🎲 para elegir un proyecto al azar. El elegido pasa automáticamente a <b>En curso</b>.<br><br>3. ✅ marca como hecho, ↩️ lo devuelve a la lista activa.<br><br>Las listas importadas pueden separarse por comas, punto y coma, saltos de línea o tabulaciones.<br><br>4. Usa ☆/⭐ para poner prioridad (más alta = sale más).<br><br>5. 🗑 reinicia la lista activa (Hechos e Historial se mantienen).<br><br>Nota: tu lista se guarda localmente en el navegador. Si borras los datos de este sitio, se perderá.",
-    "help.update_hint": "Si la app en la pantalla de inicio no se actualiza bien:",
-    "help.reload": "🔄 Recargar app",
-
-    "iconpicker.note": "Después de cambiarlo, vuelve a añadir / instalar.",
-    "iconpicker.title": "Color del icono (instalación)",
-    "footer.created": "RandomiseMe! – creado por Nico Siedler",
-    "footer.license": "Versión 0.9a 02/2026 publicada bajo GPL3",
-
-    "confirm.clear": "¿Borrar todos los proyectos activos? (Hechos e historial se conservan.)",
-    "confirm.clear_done": "¿Vaciar la lista de hechos?",
-    "confirm.clear_history": "¿Borrar el historial?",
-
-    "alert.no_projects": "¡Aún no has añadido proyectos!",
-    "alert.import_finished": "Importación finalizada: se añadieron {count} proyectos nuevos.",
-    "alert.import_restored": "(+{count} restaurados)",
-    "alert.nothing_to_copy": "Aún no hay nada que copiar.",
-
-    "toast.copied": "Copiado al portapapeles.",
-    "toast.deleted": "Borrado: {name}",
-    "toast.done": "Marcado como hecho: {name}",
-    "toast.restored": "Restaurado: {name}",
-    "toast.cleared_active": "Lista activa borrada.",
-    "toast.cleared_done": "Lista de hechos vaciada.",
-    "toast.cleared_history": "Historial borrado.",
-
-    "history.roll": "Sorteado",
-    "history.done": "Hecho",
-    "history.restore": "Restaurado",
-    "history.delete": "Borrado",
-
-    "aria.delete": "Borrar",
-    "aria.done": "Marcar como hecho",
-    "aria.restore": "Restaurar",
-    "aria.copy": "Copiar",
-    "aria.back": "Volver a activos",
-    "aria.prio": "Prioridad",
-    "aria.undo": "Deshacer",
-
-    "btn.export": "⬇️ Exportar",
-    "export.title": "Exportar",
-    "export.hint": "Elige qué exportar:",
-    "export.progress": "En curso",
-    "export.active": "Activos",
-    "export.done": "Completados",
-    "export.history": "Historial",
-    "export.txt": "⬇️ TXT",
-    "export.csv": "⬇️ CSV",
-    "export.grouped_note": "El TXT se agrupa por etiquetas.",
-    "export.ungrouped": "Sin etiqueta",
-    "aria.group": "Establecer grupo",
-    "prompt.group": "Grupo / etiqueta (vacío = quitar):",
-    "toast.exported": "Exportado.",
-    "toast.group_set": "Grupo establecido: {group}",
-    "toast.group_cleared": "Grupo eliminado.",
-    "toast.prio_set": "Prioridad: {prio}",
-    "toast.prio_cleared": "Prioridad eliminada.",
-
-    "exclamations": [
-      "Mira:",
-      "¡Bam!:",
-      "Toma:",
-      "Bueno:",
-      "Adivina:",
-      "Giro de trama:",
-      "Qué suerte:",
-      "Allá vamos:",
-      "¡Tachán!:",
-      "Et voilà:"
-    ]
-  },
-
-  "pl": {
-    "lang.name": "🇵🇱 PL",
-    "lang.label": "Język",
-    "flavour.text": "Cześć, wybierzmy nowy projekt! :)",
-    "input.placeholder": "Wpisz nazwę projektu",
-    "btn.add": "Dodaj",
-    "btn.import": "📂 Importuj listę (txt lub csv)",
-    "heading.progress": "W trakcie:",
-    "heading.list": "Moje niedokończone projekty:",
-    "btn.clear": "🗑 Wyczyść wszystko",
-    "btn.roll": "🎲 Losuj!",
-
-    "heading.done": "Zrobione:",
-    "heading.history": "Historia:",
-    "btn.clear_done": "🧹 Wyczyść zrobione",
-    "btn.clear_history": "🗑 Wyczyść historię",
-    "btn.copy_history": "📋 Kopiuj historię",
-    "btn.mark_done": "✅ Oznacz jako zrobione",
-    "btn.back": "↩️ Wróć",
-    "btn.copy": "📋 Kopiuj",
-    "btn.undo": "Cofnij",
-
-    "help.btn": "❓ Instrukcja",
-    "help.title": "Jak używać RandomiseMe",
-    "help.body": "1. Dodaj projekty ręcznie albo zaimportuj listę .txt/.csv.<br><br>2. Kliknij 🎲, aby losowo wybrać jeden projekt. Wylosowany element trafia automatycznie do <b>W trakcie</b>.<br><br>3. ✅ oznacza jako zrobione, ↩️ odsyła z powrotem na listę aktywną.<br><br>Importowane listy mogą być rozdzielane przecinkami, średnikami, nowymi liniami lub tabulatorami.<br><br>4. Użyj ☆/⭐, aby ustawić priorytet (wyższy = częściej losowany).<br><br>5. 🗑 czyści listę aktywną (Zrobione i Historia zostają).<br><br>Uwaga: lista jest zapisywana lokalnie w przeglądarce. Jeśli usuniesz dane tej strony, zniknie.",
-    "help.update_hint": "Jeśli aplikacja na ekranie głównym nie aktualizuje się poprawnie:",
-    "help.reload": "🔄 Przeładuj aplikację",
-
-    "iconpicker.note": "Po zmianie dodaj / zainstaluj ponownie.",
-    "iconpicker.title": "Kolor ikony (instalacja)",
-    "footer.created": "RandomiseMe! – autor: Nico Siedler",
-    "footer.license": "Wersja 0.9a 02/2026 opublikowana na licencji GPL3",
-
-    "confirm.clear": "Usunąć wszystkie aktywne projekty? (Zrobione i historia zostają.)",
-    "confirm.clear_done": "Wyczyścić listę zrobionych?",
-    "confirm.clear_history": "Wyczyścić historię?",
-
-    "alert.no_projects": "Nie dodano jeszcze żadnych projektów!",
-    "alert.import_finished": "Import zakończony: dodano {count} nowych projektów.",
-    "alert.import_restored": "(+{count} przywrócono)",
-    "alert.nothing_to_copy": "Na razie nie ma czego kopiować.",
-
-    "toast.copied": "Skopiowano do schowka.",
-    "toast.deleted": "Usunięto: {name}",
-    "toast.done": "Oznaczono jako zrobione: {name}",
-    "toast.restored": "Przywrócono: {name}",
-    "toast.cleared_active": "Wyczyszczono listę aktywną.",
-    "toast.cleared_done": "Wyczyszczono zrobione.",
-    "toast.cleared_history": "Wyczyszczono historię.",
-
-    "history.roll": "Wylosowano",
-    "history.done": "Zrobione",
-    "history.restore": "Przywrócono",
-    "history.delete": "Usunięto",
-
-    "aria.delete": "Usuń",
-    "aria.done": "Oznacz jako zrobione",
-    "aria.restore": "Przywróć",
-    "aria.copy": "Kopiuj",
-    "aria.back": "Wróć do aktywnych",
-    "aria.prio": "Priorytet",
-    "aria.undo": "Cofnij",
-
-    "btn.export": "⬇️ Eksport",
-    "export.title": "Eksport",
-    "export.hint": "Wybierz, co eksportować:",
-    "export.progress": "W trakcie",
-    "export.active": "Aktywne",
-    "export.done": "Zrobione",
-    "export.history": "Historia",
-    "export.txt": "⬇️ TXT",
-    "export.csv": "⬇️ CSV",
-    "export.grouped_note": "TXT jest grupowany według tagów.",
-    "export.ungrouped": "Bez tagu",
-    "aria.group": "Ustaw grupę",
-    "prompt.group": "Grupa / tag (puste = usuń):",
-    "toast.exported": "Wyeksportowano.",
-    "toast.group_set": "Ustawiono grupę: {group}",
-    "toast.group_cleared": "Usunięto grupę.",
-    "toast.prio_set": "Priorytet: {prio}",
-    "toast.prio_cleared": "Priorytet usunięty.",
-
-    "exclamations": [
-      "Patrz:",
-      "Bam:",
-      "Masz:",
-      "No cóż:",
-      "Zgadnij:",
-      "Zwrot akcji:",
-      "Szczęściarz:",
-      "No to jedziemy:",
-      "Ta‑da:",
-      "Et voilà:"
-    ]
-  },
-
-  "pt": {
-    "lang.name": "🇵🇹 PT",
-    "lang.label": "Idioma",
-    "flavour.text": "Olá, vamos escolher um projeto! :)",
-    "input.placeholder": "Escreve o nome do projeto",
-    "btn.add": "Adicionar",
-    "btn.import": "📂 Importar lista (txt ou csv)",
-    "heading.progress": "Em andamento:",
-    "heading.list": "Meus projetos pendentes:",
-    "btn.clear": "🗑 Limpar tudo",
-    "btn.roll": "🎲 Vamos lá!",
-
-    "heading.done": "Feito:",
-    "heading.history": "Histórico:",
-    "btn.clear_done": "🧹 Limpar feitos",
-    "btn.clear_history": "🗑 Limpar histórico",
-    "btn.copy_history": "📋 Copiar histórico",
-    "btn.mark_done": "✅ Marcar como feito",
-    "btn.back": "↩️ Voltar",
-    "btn.copy": "📋 Copiar",
-    "btn.undo": "Desfazer",
-
-    "help.btn": "❓ Como usar",
-    "help.title": "Como usar o RandomiseMe",
-    "help.body": "1. Adiciona projetos manualmente ou importa uma lista .txt/.csv.<br><br>2. Toca em 🎲 para escolher um projeto ao acaso. O escolhido vai automaticamente para <b>Em andamento</b>.<br><br>3. ✅ marca como feito, ↩️ devolve à lista ativa.<br><br>As listas importadas podem ser separadas por vírgulas, ponto e vírgula, quebras de linha ou tab.<br><br>4. Usa ☆/⭐ para definir prioridade (mais alta = aparece mais).<br><br>5. 🗑 repõe a lista ativa (Concluídos e Histórico ficam).<br><br>Nota: a lista é guardada localmente no browser. Se apagares os dados deste site, ela perde-se.",
-    "help.update_hint": "Se a app no ecrã inicial não atualizar corretamente:",
-    "help.reload": "🔄 Recarregar app",
-
-    "iconpicker.note": "Depois de alterar, volta a adicionar / instalar.",
-    "iconpicker.title": "Cor do ícone (instalação)",
-    "footer.created": "RandomiseMe! – criado por Nico Siedler",
-    "footer.license": "Versão 0.9a 02/2026 publicada sob GPL3",
-
-    "confirm.clear": "Limpar todos os projetos ativos? (Feitos e histórico ficam.)",
-    "confirm.clear_done": "Limpar a lista de feitos?",
-    "confirm.clear_history": "Limpar o histórico?",
-
-    "alert.no_projects": "Ainda não adicionaste projetos!",
-    "alert.import_finished": "Importação concluída: {count} novos projetos adicionados.",
-    "alert.import_restored": "(+{count} restaurados)",
-    "alert.nothing_to_copy": "Ainda não há nada para copiar.",
-
-    "toast.copied": "Copiado para a área de transferência.",
-    "toast.deleted": "Eliminado: {name}",
-    "toast.done": "Marcado como feito: {name}",
-    "toast.restored": "Restaurado: {name}",
-    "toast.cleared_active": "Lista ativa limpa.",
-    "toast.cleared_done": "Lista de feitos limpa.",
-    "toast.cleared_history": "Histórico limpo.",
-
-    "history.roll": "Sorteado",
-    "history.done": "Feito",
-    "history.restore": "Restaurado",
-    "history.delete": "Eliminado",
-
-    "aria.delete": "Eliminar",
-    "aria.done": "Marcar como feito",
-    "aria.restore": "Restaurar",
-    "aria.copy": "Copiar",
-    "aria.back": "Voltar para ativos",
-    "aria.prio": "Prioridade",
-    "aria.undo": "Desfazer",
-
-    "btn.export": "⬇️ Exportar",
-    "export.title": "Exportar",
-    "export.hint": "Escolha o que exportar:",
-    "export.progress": "Em andamento",
-    "export.active": "Ativos",
-    "export.done": "Concluídos",
-    "export.history": "Histórico",
-    "export.txt": "⬇️ TXT",
-    "export.csv": "⬇️ CSV",
-    "export.grouped_note": "O TXT é agrupado por tags.",
-    "export.ungrouped": "Sem tag",
-    "aria.group": "Definir grupo",
-    "prompt.group": "Grupo / tag (vazio = remover):",
-    "toast.exported": "Exportado.",
-    "toast.group_set": "Grupo definido: {group}",
-    "toast.group_cleared": "Grupo removido.",
-    "toast.prio_set": "Prioridade: {prio}",
-    "toast.prio_cleared": "Prioridade removida.",
-
-    "exclamations": [
-      "Olha:",
-      "Bam:",
-      "Toma:",
-      "Bem:",
-      "Adivinha:",
-      "Reviravolta:",
-      "Que sorte:",
-      "Lá vamos nós:",
-      "Tcharam:",
-      "Et voilà:"
-    ]
-  },
-
-  "sv": {
-    "lang.name": "🇸🇪 SV",
-    "lang.label": "Språk",
-    "flavour.text": "Hej, nu väljer vi ett projekt! :)",
-    "input.placeholder": "Skriv projektnamn",
-    "btn.add": "Lägg till",
-    "btn.import": "📂 Importera lista (txt eller csv)",
-    "heading.progress": "Pågående:",
-    "heading.list": "Mina pågående projekt:",
-    "btn.clear": "🗑 Rensa allt",
-    "btn.roll": "🎲 Kör!",
-
-    "heading.done": "Klar:",
-    "heading.history": "Historik:",
-    "btn.clear_done": "🧹 Rensa klara",
-    "btn.clear_history": "🗑 Rensa historik",
-    "btn.copy_history": "📋 Kopiera historik",
-    "btn.mark_done": "✅ Markera som klar",
-    "btn.back": "↩️ Tillbaka",
-    "btn.copy": "📋 Kopiera",
-    "btn.undo": "Ångra",
-
-    "help.btn": "❓ Hjälp",
-    "help.title": "Så använder du RandomiseMe",
-    "help.body": "1. Lägg till projekt manuellt eller importera en .txt/.csv-lista.<br><br>2. Tryck på 🎲 för att slumpa fram ett projekt. Det valda flyttas automatiskt till <b>Pågående</b>.<br><br>3. ✅ markerar som klar, ↩️ skickar tillbaka till aktiva listan.<br><br>Importerade listor kan separeras med kommatecken, semikolon, radbrytningar eller tabbar.<br><br>4. Använd ☆/⭐ för att sätta prioritet (högre = väljs oftare).<br><br>5. 🗑 nollställer den aktiva listan (Klart & Historik behålls).<br><br>Obs: listan sparas lokalt i din webbläsare. Om du rensar webbplatsens data försvinner den.",
-    "help.update_hint": "Om appen på hemskärmen inte uppdateras som den ska:",
-    "help.reload": "🔄 Ladda om appen",
-
-    "iconpicker.note": "Efter ändring: installera/lägg till igen.",
-    "iconpicker.title": "Ikonfärg (installation)",
-    "footer.created": "RandomiseMe! – skapad av Nico Siedler",
-    "footer.license": "Version 0.9a 02/2026 publicerad under GPL3",
-
-    "confirm.clear": "Rensa alla aktiva projekt? (Klara + historik sparas.)",
-    "confirm.clear_done": "Rensa listan med klara?",
-    "confirm.clear_history": "Rensa historiken?",
-
-    "alert.no_projects": "Inga projekt har lagts till ännu!",
-    "alert.import_finished": "Importen klar: {count} nya projekt lades till.",
-    "alert.import_restored": "(+{count} återställda)",
-    "alert.nothing_to_copy": "Inget att kopiera ännu.",
-
-    "toast.copied": "Kopierat till urklipp.",
-    "toast.deleted": "Raderat: {name}",
-    "toast.done": "Markerat som klart: {name}",
-    "toast.restored": "Återställt: {name}",
-    "toast.cleared_active": "Aktiva listan rensad.",
-    "toast.cleared_done": "Klara listan rensad.",
-    "toast.cleared_history": "Historiken rensad.",
-
-    "history.roll": "Slumpat",
-    "history.done": "Klart",
-    "history.restore": "Återställt",
-    "history.delete": "Raderat",
-
-    "aria.delete": "Radera",
-    "aria.done": "Markera som klar",
-    "aria.restore": "Återställ",
-    "aria.copy": "Kopiera",
-    "aria.back": "Tillbaka till aktiva",
-    "aria.prio": "Prioritet",
-    "aria.undo": "Ångra",
-
-    "btn.export": "⬇️ Exportera",
-    "export.title": "Exportera",
-    "export.hint": "Välj vad som ska exporteras:",
-    "export.progress": "Pågående",
-    "export.active": "Aktiva",
-    "export.done": "Färdiga",
-    "export.history": "Historik",
-    "export.txt": "⬇️ TXT",
-    "export.csv": "⬇️ CSV",
-    "export.grouped_note": "TXT grupperas efter taggar.",
-    "export.ungrouped": "Utan tagg",
-    "aria.group": "Sätt grupp",
-    "prompt.group": "Grupp / tagg (tomt = ta bort):",
-    "toast.exported": "Exporterad.",
-    "toast.group_set": "Grupp satt: {group}",
-    "toast.group_cleared": "Grupp borttagen.",
-    "toast.prio_set": "Prioritet: {prio}",
-    "toast.prio_cleared": "Prioritet borttagen.",
-
-    "exclamations": [
-      "Titta:",
-      "Bam:",
-      "Varsågod:",
-      "Nåväl:",
-      "Gissa:",
-      "Plot twist:",
-      "Vilken tur:",
-      "Nu kör vi:",
-      "Ta‑da:",
-      "Et voilà:"
-    ]
-  },
-
-  "da": {
-    "lang.name": "🇩🇰 DA",
-    "lang.label": "Sprog",
-    "flavour.text": "Hej, lad os vælge et projekt! :)",
-    "input.placeholder": "Indtast projektnavn",
-    "btn.add": "Tilføj",
-    "btn.import": "📂 Importér liste (txt eller csv)",
-    "heading.progress": "I gang:",
-    "heading.list": "Mine igangværende projekter:",
-    "btn.clear": "🗑 Ryd alt",
-    "btn.roll": "🎲 Kom så!",
-
-    "heading.done": "Færdig:",
-    "heading.history": "Historik:",
-    "btn.clear_done": "🧹 Ryd færdige",
-    "btn.clear_history": "🗑 Ryd historik",
-    "btn.copy_history": "📋 Kopiér historik",
-    "btn.mark_done": "✅ Markér som færdig",
-    "btn.back": "↩️ Tilbage",
-    "btn.copy": "📋 Kopiér",
-    "btn.undo": "Fortryd",
-
-    "help.btn": "❓ Hjælp",
-    "help.title": "Sådan bruger du RandomiseMe",
-    "help.body": "1. Tilføj projekter manuelt eller importér en .txt/.csv-liste.<br><br>2. Tryk på 🎲 for at vælge et projekt tilfældigt. Det valgte flyttes automatisk til <b>I gang</b>.<br><br>3. ✅ markerer som færdig, ↩️ sender tilbage til aktiv liste.<br><br>Importerede lister kan være adskilt med kommaer, semikolon, linjeskift eller tabulatorer.<br><br>4. Brug ☆/⭐ til at sætte prioritet (højere = vælges oftere).<br><br>5. 🗑 nulstiller den aktive liste (Færdige & Historik bevares).<br><br>Note: din liste gemmes lokalt i browseren. Hvis du sletter webstedets data, forsvinder den.",
-    "help.update_hint": "Hvis appen på hjemmeskærmen ikke opdaterer korrekt:",
-    "help.reload": "🔄 Genindlæs app",
-
-    "iconpicker.note": "Efter ændring: installér/tilføj igen.",
-    "iconpicker.title": "Ikonfarve (installation)",
-    "footer.created": "RandomiseMe! – lavet af Nico Siedler",
-    "footer.license": "Version 0.9a 02/2026 udgivet under GPL3",
-
-    "confirm.clear": "Ryd alle aktive projekter? (Færdige + historik bliver.)",
-    "confirm.clear_done": "Ryd listen over færdige?",
-    "confirm.clear_history": "Ryd historikken?",
-
-    "alert.no_projects": "Der er endnu ikke tilføjet projekter!",
-    "alert.import_finished": "Import færdig: {count} nye projekter blev tilføjet.",
-    "alert.import_restored": "(+{count} gendannet)",
-    "alert.nothing_to_copy": "Intet at kopiere endnu.",
-
-    "toast.copied": "Kopieret til udklipsholder.",
-    "toast.deleted": "Slettet: {name}",
-    "toast.done": "Markeret som færdig: {name}",
-    "toast.restored": "Gendannet: {name}",
-    "toast.cleared_active": "Aktiv liste ryddet.",
-    "toast.cleared_done": "Færdig-liste ryddet.",
-    "toast.cleared_history": "Historik ryddet.",
-
-    "history.roll": "Valgt",
-    "history.done": "Færdig",
-    "history.restore": "Gendannet",
-    "history.delete": "Slettet",
-
-    "aria.delete": "Slet",
-    "aria.done": "Markér som færdig",
-    "aria.restore": "Gendan",
-    "aria.copy": "Kopiér",
-    "aria.back": "Tilbage til aktive",
-    "aria.prio": "Prioritet",
-    "aria.undo": "Fortryd",
-
-    "btn.export": "⬇️ Eksport",
-    "export.title": "Eksport",
-    "export.hint": "Vælg hvad der skal eksporteres:",
-    "export.progress": "I gang",
-    "export.active": "Aktive",
-    "export.done": "Færdige",
-    "export.history": "Historik",
-    "export.txt": "⬇️ TXT",
-    "export.csv": "⬇️ CSV",
-    "export.grouped_note": "TXT grupperes efter tags.",
-    "export.ungrouped": "Uden tag",
-    "aria.group": "Sæt gruppe",
-    "prompt.group": "Gruppe / tag (tom = fjern):",
-    "toast.exported": "Eksporteret.",
-    "toast.group_set": "Gruppe sat: {group}",
-    "toast.group_cleared": "Gruppe fjernet.",
-    "toast.prio_set": "Prioritet: {prio}",
-    "toast.prio_cleared": "Prioritet fjernet.",
-
-    "exclamations": [
-      "Se lige:",
-      "Bam:",
-      "Værsgo:",
-      "Nå:",
-      "Gæt:",
-      "Plot twist:",
-      "Heldige dig:",
-      "Så kører vi:",
-      "Ta‑da:",
-      "Et voilà:"
-    ]
-  },
-
-  "ru": {
-    "lang.name": "🇷🇺 RU",
-    "lang.label": "Язык",
-    "flavour.text": "Привет, давай выберем проект! :)",
-    "input.placeholder": "Введите название проекта",
-    "btn.add": "Добавить",
-    "btn.import": "📂 Импорт списка (txt или csv)",
-    "heading.progress": "В работе:",
-    "heading.list": "Мои незаконченные проекты:",
-    "btn.clear": "🗑 Очистить всё",
-    "btn.roll": "🎲 Поехали!",
-
-    "heading.done": "Сделано:",
-    "heading.history": "История:",
-    "btn.clear_done": "🧹 Очистить «Сделано»",
-    "btn.clear_history": "🗑 Очистить историю",
-    "btn.copy_history": "📋 Копировать историю",
-    "btn.mark_done": "✅ Отметить как сделано",
-    "btn.back": "↩️ Назад",
-    "btn.copy": "📋 Копировать",
-    "btn.undo": "Отменить",
-
-    "help.btn": "❓ Как пользоваться",
-    "help.title": "Как пользоваться RandomiseMe",
-    "help.body": "1. Добавляйте проекты вручную или импортируйте список .txt/.csv.<br><br>2. Нажмите 🎲, чтобы случайно выбрать один проект. Выбранный элемент автоматически переходит в <b>В работе</b>.<br><br>3. ✅ отмечает как сделано, ↩️ возвращает в активный список.<br><br>В импортируемых списках разделителями могут быть запятые, точки с запятой, переносы строк или табуляция.<br><br>4. Используйте ☆/⭐, чтобы задать приоритет (выше = выбирается чаще).<br><br>5. 🗑 очищает активный список (Готово и История остаются).<br><br>Примечание: список хранится локально в вашем браузере. Если удалить данные этого сайта, список пропадёт.",
-    "help.update_hint": "Если приложение на домашнем экране не обновляется корректно:",
-    "help.reload": "🔄 Перезагрузить приложение",
-
-    "iconpicker.note": "После смены установите/добавьте заново.",
-    "iconpicker.title": "Цвет иконки (установка)",
-    "footer.created": "RandomiseMe! – автор: Nico Siedler",
-    "footer.license": "Версия 0.9a 02/2026 опубликовано под GPL3",
-
-    "confirm.clear": "Очистить все активные проекты? («Сделано» и история останутся.)",
-    "confirm.clear_done": "Очистить список «Сделано»?",
-    "confirm.clear_history": "Очистить историю?",
-
-    "alert.no_projects": "Проекты ещё не добавлены!",
-    "alert.import_finished": "Импорт завершён: добавлено новых проектов — {count}.",
-    "alert.import_restored": "(+{count} восстановлено)",
-    "alert.nothing_to_copy": "Пока нечего копировать.",
-
-    "toast.copied": "Скопировано в буфер обмена.",
-    "toast.deleted": "Удалено: {name}",
-    "toast.done": "Отмечено как сделано: {name}",
-    "toast.restored": "Восстановлено: {name}",
-    "toast.cleared_active": "Активный список очищен.",
-    "toast.cleared_done": "Список «Сделано» очищен.",
-    "toast.cleared_history": "История очищена.",
-
-    "history.roll": "Выбрано",
-    "history.done": "Сделано",
-    "history.restore": "Восстановлено",
-    "history.delete": "Удалено",
-
-    "aria.delete": "Удалить",
-    "aria.done": "Отметить как сделано",
-    "aria.restore": "Восстановить",
-    "aria.copy": "Копировать",
-    "aria.back": "Вернуть в активные",
-    "aria.prio": "Приоритет",
-    "aria.undo": "Отменить",
-
-    "btn.export": "⬇️ Экспорт",
-    "export.title": "Экспорт",
-    "export.hint": "Выберите, что экспортировать:",
-    "export.progress": "В работе",
-    "export.active": "Активные",
-    "export.done": "Выполнено",
-    "export.history": "История",
-    "export.txt": "⬇️ TXT",
-    "export.csv": "⬇️ CSV",
-    "export.grouped_note": "TXT группируется по тегам.",
-    "export.ungrouped": "Без тега",
-    "aria.group": "Задать группу",
-    "prompt.group": "Группа / тег (пусто = удалить):",
-    "toast.exported": "Экспортировано.",
-    "toast.group_set": "Группа установлена: {group}",
-    "toast.group_cleared": "Группа удалена.",
-    "toast.prio_set": "Приоритет: {prio}",
-    "toast.prio_cleared": "Приоритет сброшен.",
-
-    "exclamations": [
-      "Смотри:",
-      "Бам:",
-      "Держи:",
-      "Ну что ж:",
-      "Угадай:",
-      "Вот это поворот:",
-      "Повезло тебе:",
-      "Поехали:",
-      "Та‑дам:",
-      "Et voilà:"
-    ]
-  },
-
-  "cs": {
-    "lang.name": "🇨🇿 CS",
-    "lang.label": "Jazyk",
-    "flavour.text": "Ahoj, vyberme si projekt! :)",
-    "input.placeholder": "Zadej název projektu",
-    "btn.add": "Přidat",
-    "btn.import": "📂 Importovat seznam (txt nebo csv)",
-    "heading.progress": "V práci:",
-    "heading.list": "Moje rozpracované projekty:",
-    "btn.clear": "🗑 Smazat vše",
-    "btn.roll": "🎲 Jdeme na to!",
-
-    "heading.done": "Hotovo:",
-    "heading.history": "Historie:",
-    "btn.clear_done": "🧹 Vymazat hotové",
-    "btn.clear_history": "🗑 Vymazat historii",
-    "btn.copy_history": "📋 Kopírovat historii",
-    "btn.mark_done": "✅ Označit jako hotovo",
-    "btn.back": "↩️ Zpět",
-    "btn.copy": "📋 Kopírovat",
-    "btn.undo": "Zpět",
-
-    "help.btn": "❓ Návod",
-    "help.title": "Jak používat RandomiseMe",
-    "help.body": "1. Přidej projekty ručně nebo importuj seznam .txt/.csv.<br><br>2. Klikni na 🎲 a náhodně vyber jeden projekt. Vybraný projekt se automaticky přesune do <b>V práci</b>.<br><br>3. ✅ označí jako hotovo, ↩️ vrátí do aktivního seznamu.<br><br>Importované seznamy mohou být oddělené čárkami, středníky, konci řádků nebo tabulátory.<br><br>4. Použij ☆/⭐ pro prioritu (vyšší = vybírá se častěji).<br><br>5. 🗑 vymaže aktivní seznam (Hotovo a Historie zůstávají).<br><br>Poznámka: seznam se ukládá lokálně v prohlížeči. Když smažeš data tohoto webu, seznam zmizí.",
-    "help.update_hint": "Pokud se aplikace na domovské obrazovce neaktualizuje správně:",
-    "help.reload": "🔄 Načíst znovu",
-
-    "iconpicker.note": "Po změně znovu nainstaluj / přidej.",
-    "iconpicker.title": "Barva ikony (instalace)",
-    "footer.created": "RandomiseMe! – vytvořil Nico Siedler",
-    "footer.license": "Verze 0.9a 02/2026 vydáno pod GPL3",
-
-    "confirm.clear": "Smazat všechny aktivní projekty? (Hotovo + historie zůstane.)",
-    "confirm.clear_done": "Vymazat seznam hotových?",
-    "confirm.clear_history": "Vymazat historii?",
-
-    "alert.no_projects": "Zatím nejsou přidány žádné projekty!",
-    "alert.import_finished": "Import dokončen: přidáno {count} nových projektů.",
-    "alert.import_restored": "(+{count} obnoveno)",
-    "alert.nothing_to_copy": "Zatím není co kopírovat.",
-
-    "toast.copied": "Zkopírováno do schránky.",
-    "toast.deleted": "Smazáno: {name}",
-    "toast.done": "Označeno jako hotovo: {name}",
-    "toast.restored": "Obnoveno: {name}",
-    "toast.cleared_active": "Aktivní seznam vymazán.",
-    "toast.cleared_done": "Hotové vymazáno.",
-    "toast.cleared_history": "Historie vymazána.",
-
-    "history.roll": "Vylosováno",
-    "history.done": "Hotovo",
-    "history.restore": "Obnoveno",
-    "history.delete": "Smazáno",
-
-    "aria.delete": "Smazat",
-    "aria.done": "Označit jako hotovo",
-    "aria.restore": "Obnovit",
-    "aria.copy": "Kopírovat",
-    "aria.back": "Vrátit do aktivních",
-    "aria.prio": "Priorita",
-    "aria.undo": "Zpět",
-
-    "btn.export": "⬇️ Export",
-    "export.title": "Export",
-    "export.hint": "Vyber, co exportovat:",
-    "export.progress": "V práci",
-    "export.active": "Aktivní",
-    "export.done": "Hotovo",
-    "export.history": "Historie",
-    "export.txt": "⬇️ TXT",
-    "export.csv": "⬇️ CSV",
-    "export.grouped_note": "TXT je seskupen podle tagů.",
-    "export.ungrouped": "Bez tagu",
-    "aria.group": "Nastavit skupinu",
-    "prompt.group": "Skupina / tag (prázdné = odstranit):",
-    "toast.exported": "Exportováno.",
-    "toast.group_set": "Skupina nastavena: {group}",
-    "toast.group_cleared": "Skupina odstraněna.",
-    "toast.prio_set": "Priorita: {prio}",
-    "toast.prio_cleared": "Priorita zrušena.",
-
-    "exclamations": [
-      "Koukej:",
-      "Bum:",
-      "Tady to je:",
-      "Tak:",
-      "Hádej:",
-      "Zvrat v ději:",
-      "Máš štěstí:",
-      "Jdeme na to:",
-      "Ta‑da:",
-      "Et voilà:"
-    ]
-  },
-
-  "nb": {
-    "lang.name": "🇳🇴 NO",
-    "lang.label": "Språk",
-    "flavour.text": "Hei, la oss velge et prosjekt! :)",
-    "input.placeholder": "Skriv prosjektnavn",
-    "btn.add": "Legg til",
-    "btn.import": "📂 Importer liste (txt eller csv)",
-    "heading.progress": "Pågår:",
-    "heading.list": "Mine pågående prosjekter:",
-    "btn.clear": "🗑 Tøm alt",
-    "btn.roll": "🎲 Kjør!",
-
-    "heading.done": "Ferdig:",
-    "heading.history": "Historikk:",
-    "btn.clear_done": "🧹 Tøm ferdige",
-    "btn.clear_history": "🗑 Tøm historikk",
-    "btn.copy_history": "📋 Kopier historikk",
-    "btn.mark_done": "✅ Merk som ferdig",
-    "btn.back": "↩️ Tilbake",
-    "btn.copy": "📋 Kopier",
-    "btn.undo": "Angre",
-
-    "help.btn": "❓ Hjelp",
-    "help.title": "Slik bruker du RandomiseMe",
-    "help.body": "1. Legg til prosjekter manuelt eller importer en .txt/.csv-liste.<br><br>2. Trykk på 🎲 for å velge et prosjekt tilfeldig. Valgt prosjekt flyttes automatisk til <b>Pågår</b>.<br><br>3. ✅ markerer som ferdig, ↩️ sender tilbake til aktiv liste.<br><br>Importerte lister kan skilles med komma, semikolon, linjeskift eller tabulator.<br><br>4. Bruk ☆/⭐ for å sette prioritet (høyere = velges oftere).<br><br>5. 🗑 nullstiller den aktive listen (Ferdig og Historikk beholdes).<br><br>Merk: listen lagres lokalt i nettleseren. Hvis du sletter nettstedets data, forsvinner den.",
-    "help.update_hint": "Hvis appen på hjemskjermen ikke oppdaterer riktig:",
-    "help.reload": "🔄 Last inn på nytt",
-
-    "iconpicker.note": "Etter endring: installer/legg til på nytt.",
-    "iconpicker.title": "Ikonfarge (installasjon)",
-    "footer.created": "RandomiseMe! – laget av Nico Siedler",
-    "footer.license": "Versjon 0.9a 02/2026 publisert under GPL3",
-
-    "confirm.clear": "Tøm alle aktive prosjekter? (Ferdige + historikk blir.)",
-    "confirm.clear_done": "Tømme listen over ferdige?",
-    "confirm.clear_history": "Tømme historikken?",
-
-    "alert.no_projects": "Ingen prosjekter er lagt til ennå!",
-    "alert.import_finished": "Import ferdig: {count} nye prosjekter ble lagt til.",
-    "alert.import_restored": "(+{count} gjenopprettet)",
-    "alert.nothing_to_copy": "Ingenting å kopiere ennå.",
-
-    "toast.copied": "Kopiert til utklippstavlen.",
-    "toast.deleted": "Slettet: {name}",
-    "toast.done": "Merket som ferdig: {name}",
-    "toast.restored": "Gjenopprettet: {name}",
-    "toast.cleared_active": "Aktiv liste tømt.",
-    "toast.cleared_done": "Ferdig-liste tømt.",
-    "toast.cleared_history": "Historikk tømt.",
-
-    "history.roll": "Valgt",
-    "history.done": "Ferdig",
-    "history.restore": "Gjenopprettet",
-    "history.delete": "Slettet",
-
-    "aria.delete": "Slett",
-    "aria.done": "Merk som ferdig",
-    "aria.restore": "Gjenopprett",
-    "aria.copy": "Kopier",
-    "aria.back": "Tilbake til aktive",
-    "aria.prio": "Prioritet",
-    "aria.undo": "Angre",
-
-    "btn.export": "⬇️ Eksporter",
-    "export.title": "Eksporter",
-    "export.hint": "Velg hva som skal eksporteres:",
-    "export.progress": "Pågår",
-    "export.active": "Aktive",
-    "export.done": "Fullført",
-    "export.history": "Historikk",
-    "export.txt": "⬇️ TXT",
-    "export.csv": "⬇️ CSV",
-    "export.grouped_note": "TXT grupperes etter tagger.",
-    "export.ungrouped": "Uten tagg",
-    "aria.group": "Sett gruppe",
-    "prompt.group": "Gruppe / tagg (tom = fjern):",
-    "toast.exported": "Eksportert.",
-    "toast.group_set": "Gruppe satt: {group}",
-    "toast.group_cleared": "Gruppe fjernet.",
-    "toast.prio_set": "Prioritet: {prio}",
-    "toast.prio_cleared": "Prioritet fjernet.",
-
-    "exclamations": [
-      "Se her:",
-      "Bam:",
-      "Værsågod:",
-      "Vel:",
-      "Gjett:",
-      "Plott-twist:",
-      "Heldige deg:",
-      "Da kjører vi:",
-      "Ta‑da:",
-      "Et voilà:"
-    ]
-  },
-
-  "fi": {
-    "lang.name": "🇫🇮 FI",
-    "lang.label": "Kieli",
-    "flavour.text": "Hei, valitaan projekti! :)",
-    "input.placeholder": "Syötä projektin nimi",
-    "btn.add": "Lisää",
-    "btn.import": "📂 Tuo lista (txt tai csv)",
-    "heading.progress": "Kesken:",
-    "heading.list": "Keskeneräiset projektini:",
-    "btn.clear": "🗑 Tyhjennä kaikki",
-    "btn.roll": "🎲 Anna mennä!",
-
-    "heading.done": "Valmis:",
-    "heading.history": "Historia:",
-    "btn.clear_done": "🧹 Tyhjennä valmiit",
-    "btn.clear_history": "🗑 Tyhjennä historia",
-    "btn.copy_history": "📋 Kopioi historia",
-    "btn.mark_done": "✅ Merkitse valmiiksi",
-    "btn.back": "↩️ Takaisin",
-    "btn.copy": "📋 Kopioi",
-    "btn.undo": "Kumoa",
-
-    "help.btn": "❓ Ohje",
-    "help.title": "Näin käytät RandomiseMe:tä",
-    "help.body": "1. Lisää projekteja käsin tai tuo .txt/.csv-lista.<br><br>2. Napauta 🎲 valitaksesi projektin satunnaisesti. Valittu siirtyy automaattisesti kohtaan <b>Kesken</b>.<br><br>3. ✅ merkitsee valmiiksi, ↩️ palauttaa aktiiviselle listalle.<br><br>Tuoduissa listoissa erottimina voivat olla pilkut, puolipisteet, rivinvaihdot tai sarkaimet.<br><br>4. Käytä ☆/⭐ prioriteettiin (korkeampi = valitaan useammin).<br><br>5. 🗑 tyhjentää aktiivisen listan (Valmiit ja Historia jäävät).<br><br>Huom: lista tallennetaan paikallisesti selaimeen. Jos poistat tämän sivuston tiedot, lista katoaa.",
-    "help.update_hint": "Jos aloitusnäytön sovellus ei päivity oikein:",
-    "help.reload": "🔄 Lataa uudelleen",
-
-    "iconpicker.note": "Muutoksen jälkeen asenna/lisää uudelleen.",
-    "iconpicker.title": "Kuvakkeen väri (asennus)",
-    "footer.created": "RandomiseMe! – tehnyt Nico Siedler",
-    "footer.license": "Versio 0.9a 02/2026 julkaistu GPL3-lisenssillä",
-
-    "confirm.clear": "Tyhjennetäänkö kaikki aktiiviset projektit? (Valmiit ja historia jäävät.)",
-    "confirm.clear_done": "Tyhjennetäänkö valmiiden lista?",
-    "confirm.clear_history": "Tyhjennetäänkö historia?",
-
-    "alert.no_projects": "Projekteja ei ole vielä lisätty!",
-    "alert.import_finished": "Tuonti valmis: lisättiin {count} uutta projektia.",
-    "alert.import_restored": "(+{count} palautettu)",
-    "alert.nothing_to_copy": "Ei vielä mitään kopioitavaa.",
-
-    "toast.copied": "Kopioitu leikepöydälle.",
-    "toast.deleted": "Poistettu: {name}",
-    "toast.done": "Merkitty valmiiksi: {name}",
-    "toast.restored": "Palautettu: {name}",
-    "toast.cleared_active": "Aktiivinen lista tyhjennetty.",
-    "toast.cleared_done": "Valmiit lista tyhjennetty.",
-    "toast.cleared_history": "Historia tyhjennetty.",
-
-    "history.roll": "Arvottu",
-    "history.done": "Valmis",
-    "history.restore": "Palautettu",
-    "history.delete": "Poistettu",
-
-    "aria.delete": "Poista",
-    "aria.done": "Merkitse valmiiksi",
-    "aria.restore": "Palauta",
-    "aria.copy": "Kopioi",
-    "aria.back": "Takaisin aktiivisiin",
-    "aria.prio": "Prioriteetti",
-    "aria.undo": "Kumoa",
-
-    "btn.export": "⬇️ Vie",
-    "export.title": "Vienti",
-    "export.hint": "Valitse, mitä viedään:",
-    "export.progress": "Kesken",
-    "export.active": "Aktiiviset",
-    "export.done": "Valmiit",
-    "export.history": "Historia",
-    "export.txt": "⬇️ TXT",
-    "export.csv": "⬇️ CSV",
-    "export.grouped_note": "TXT ryhmitellään tageilla.",
-    "export.ungrouped": "Ilman tagia",
-    "aria.group": "Aseta ryhmä",
-    "prompt.group": "Ryhmä / tagi (tyhjä = poista):",
-    "toast.exported": "Viety.",
-    "toast.group_set": "Ryhmä asetettu: {group}",
-    "toast.group_cleared": "Ryhmä poistettu.",
-    "toast.prio_set": "Prioriteetti: {prio}",
-    "toast.prio_cleared": "Prioriteetti poistettu.",
-
-    "exclamations": [
-      "Katso:",
-      "Satana...:",
-      "Ole hyvä:",
-      "No niin:",
-      "Arvaa:",
-      "Juonenkäänne:",
-      "Onnekas sinä:",
-      "Mennään:",
-      "Ta‑da:",
-      "Perkele...:"
-    ]
-  },
-
-    "uk": {
-  "lang.name": "🇺🇦 UK",
-  "lang.label": "Мова",
-  "flavour.text": "Привіт, давай виберемо проєкт! :)",
-  "input.placeholder": "Введіть назву проєкту",
-  "btn.add": "Додати",
-  "btn.import": "📂 Імпорт списку (txt або csv)",
-  "heading.progress": "У процесі:",
-  "heading.list": "Мої незавершені проєкти:",
-  "btn.clear": "🗑 Очистити все",
-  "btn.roll": "🎲 Поїхали!",
-
-  "heading.done": "Зроблено:",
-  "heading.history": "Історія:",
-  "btn.clear_done": "🧹 Очистити «Зроблено»",
-  "btn.clear_history": "🗑 Очистити історію",
-  "btn.copy_history": "📋 Скопіювати історію",
-  "btn.mark_done": "✅ Позначити як зроблено",
-  "btn.back": "↩️ Назад",
-  "btn.copy": "📋 Скопіювати",
-  "btn.undo": "Скасувати",
-
-  "help.btn": "❓ Як користуватися",
-  "help.title": "Як користуватися RandomiseMe",
-  "help.body": "1. Додай проєкти вручну або імпортуй список .txt/.csv.<br><br>2. Натисни 🎲, щоб випадково вибрати один проєкт. Обраний елемент автоматично переходить у <b>У процесі</b>.<br><br>3. ✅ позначає як зроблено, ↩️ повертає в активний список.<br><br>У імпортованих списках розділювачами можуть бути коми, крапки з комою, переноси рядка або табуляція.<br><br>4. Використай ☆/⭐ для пріоритету (вищий = частіше обирається).<br><br>5. 🗑 очищає активний список (Готово та Історія залишаються).<br><br>Примітка: список зберігається локально у браузері. Якщо видалиш дані цього сайту, список зникне.",
-  "help.update_hint": "Якщо застосунок на головному екрані не оновлюється коректно:",
-  "help.reload": "🔄 Перезавантажити застосунок",
-
-    "iconpicker.note": "Після зміни встанови/додай знову.",
-    "iconpicker.title": "Колір іконки (встановлення)",
-  "footer.created": "RandomiseMe! – автор: Nico Siedler",
-  "footer.license": "Версія 0.9a 02/2026 опубліковано під GPL3",
-
-  "confirm.clear": "Очистити всі активні проєкти? («Зроблено» та історія залишаться.)",
-  "confirm.clear_done": "Очистити список «Зроблено»?",
-  "confirm.clear_history": "Очистити історію?",
-
-  "alert.no_projects": "Проєкти ще не додані!",
-  "alert.import_finished": "Імпорт завершено: додано нових проєктів — {count}.",
-  "alert.import_restored": "(+{count} відновлено)",
-  "alert.nothing_to_copy": "Поки що нічого копіювати.",
-
-  "toast.copied": "Скопійовано в буфер обміну.",
-  "toast.deleted": "Видалено: {name}",
-  "toast.done": "Позначено як зроблено: {name}",
-  "toast.restored": "Відновлено: {name}",
-  "toast.cleared_active": "Активний список очищено.",
-  "toast.cleared_done": "Список «Зроблено» очищено.",
-  "toast.cleared_history": "Історію очищено.",
-
-  "history.roll": "Обрано",
-  "history.done": "Зроблено",
-  "history.restore": "Відновлено",
-  "history.delete": "Видалено",
-
-  "aria.delete": "Видалити",
-  "aria.done": "Позначити як зроблено",
-  "aria.restore": "Відновити",
-  "aria.copy": "Скопіювати",
-  "aria.back": "Повернути в активні",
-  "aria.prio": "Пріоритет",
-  "aria.undo": "Скасувати",
-
-    "btn.export": "⬇️ Експорт",
-    "export.title": "Експорт",
-    "export.hint": "Виберіть, що експортувати:",
-    "export.progress": "У процесі",
-    "export.active": "Активні",
-    "export.done": "Виконано",
-    "export.history": "Історія",
-    "export.txt": "⬇️ TXT",
-    "export.csv": "⬇️ CSV",
-    "export.grouped_note": "TXT групується за тегами.",
-    "export.ungrouped": "Без тегу",
-    "aria.group": "Задати групу",
-    "prompt.group": "Група / тег (порожньо = прибрати):",
-    "toast.exported": "Експортовано.",
-    "toast.group_set": "Групу встановлено: {group}",
-    "toast.group_cleared": "Групу прибрано.",
-    "toast.prio_set": "Пріоритет: {prio}",
-    "toast.prio_cleared": "Пріоритет прибрано.",
-
-  "exclamations": [
-    "Дивись:",
-    "Бам:",
-    "Тримай:",
-    "Ну що ж:",
-    "Вгадай:",
-    "Оце так поворот:",
-    "Пощастило тобі:",
-    "Поїхали:",
-    "Та-дам:",
-    "Et voilà:"
-  ]
-},
-
-"el": {
-  "lang.name": "🇬🇷 GR",
-  "lang.label": "Γλώσσα",
-  "flavour.text": "Γεια σου, πάμε να διαλέξουμε ένα πρότζεκτ! :)",
-  "input.placeholder": "Πληκτρολόγησε το όνομα του πρότζεκτ",
-  "btn.add": "Προσθήκη",
-  "btn.import": "📂 Εισαγωγή (txt ή csv)",
-  "heading.progress": "Σε εξέλιξη:",
-  "heading.list": "Τα ανολοκλήρωτα πρότζεκτ μου:",
-  "btn.clear": "🗑 Εκκαθάριση",
-  "btn.roll": "🎲 Κλήρωση",
-
-  "heading.done": "Ολοκληρωμένα:",
-  "heading.history": "Ιστορικό:",
-  "btn.clear_done": "🧹 Εκκαθάριση",
-  "btn.clear_history": "🗑 Εκκαθάριση",
-  "btn.copy_history": "📋 Αντιγραφή",
-  "btn.mark_done": "✅ Ολοκληρώθηκε",
-  "btn.back": "↩️ Πίσω",
-  "btn.copy": "📋 Αντιγραφή",
-  "btn.undo": "Αναίρεση",
-
-  "help.btn": "❓ Βοήθεια",
-  "help.title": "Πώς να χρησιμοποιήσεις το RandomiseMe",
-  "help.body": "1. Πρόσθεσε πρότζεκτ χειροκίνητα ή εισήγαγε λίστα .txt/.csv.<br><br>2. Πάτησε 🎲 για να επιλέξεις τυχαία ένα πρότζεκτ. Το επιλεγμένο μεταφέρεται αυτόματα στο <b>Σε εξέλιξη</b>.<br><br>3. ✅ το σημειώνει ως ολοκληρωμένο, ↩️ το επιστρέφει στη λίστα ενεργών.<br><br>Στις λίστες εισαγωγής, διαχωριστικά μπορούν να είναι κόμματα, ερωτηματικά/άνω τελείες (;), αλλαγές γραμμής ή tab.<br><br>4. Με ☆/⭐ ορίζεις προτεραιότητα (υψηλότερη = επιλέγεται συχνότερα).<br><br>5. 🗑 μηδενίζει την ενεργή λίστα (Ολοκληρωμένα & Ιστορικό μένουν).<br><br>Σημείωση: η λίστα αποθηκεύεται τοπικά στον browser. Αν διαγράψεις τα δεδομένα αυτής της σελίδας, θα χαθεί.",
-  "help.update_hint": "Αν η εφαρμογή στην αρχική οθόνη δεν ενημερώνεται σωστά:",
-  "help.reload": "🔄 Επαναφόρτωση εφαρμογής",
-
-    "iconpicker.note": "Μετά την αλλαγή, πρόσθεσε/εγκατέστησε ξανά.",
-    "iconpicker.title": "Χρώμα εικονιδίου (εγκατάσταση)",
-  "footer.created": "RandomiseMe! – δημιουργός: Nico Siedler",
-  "footer.license": "Έκδοση 0.9a 02/2026 δημοσιεύτηκε υπό GPL3",
-
-  "confirm.clear": "Να καθαριστούν όλα τα ενεργά πρότζεκτ; («Ολοκληρωμένα» και ιστορικό θα παραμείνουν.)",
-  "confirm.clear_done": "Να καθαριστεί η λίστα «Ολοκληρωμένα»;",
-  "confirm.clear_history": "Να καθαριστεί το ιστορικό;",
-
-  "alert.no_projects": "Δεν έχουν προστεθεί ακόμη πρότζεκτ!",
-  "alert.import_finished": "Η εισαγωγή ολοκληρώθηκε: προστέθηκαν νέα πρότζεκτ — {count}.",
-  "alert.import_restored": "(+{count} επαναφέρθηκαν)",
-  "alert.nothing_to_copy": "Δεν υπάρχει κάτι για αντιγραφή ακόμη.",
-
-  "toast.copied": "Αντιγράφηκε στο πρόχειρο.",
-  "toast.deleted": "Διαγράφηκε: {name}",
-  "toast.done": "Σημειώθηκε ως ολοκληρωμένο: {name}",
-  "toast.restored": "Επαναφέρθηκε: {name}",
-  "toast.cleared_active": "Η ενεργή λίστα καθαρίστηκε.",
-  "toast.cleared_done": "Η λίστα «Ολοκληρωμένα» καθαρίστηκε.",
-  "toast.cleared_history": "Το ιστορικό καθαρίστηκε.",
-
-  "history.roll": "Επιλέχθηκε",
-  "history.done": "Ολοκληρώθηκε",
-  "history.restore": "Επαναφέρθηκε",
-  "history.delete": "Διαγράφηκε",
-
-  "aria.delete": "Διαγραφή",
-  "aria.done": "Σήμανση ως ολοκληρωμένο",
-  "aria.restore": "Επαναφορά",
-  "aria.copy": "Αντιγραφή",
-  "aria.back": "Πίσω στη λίστα",
-  "aria.prio": "Προτεραιότητα",
-  "aria.undo": "Αναίρεση",
-
-    "btn.export": "⬇️ Εξαγωγή",
-    "export.title": "Εξαγωγή",
-    "export.hint": "Επίλεξε τι θα εξαχθεί:",
-    "export.progress": "Σε εξέλιξη",
-    "export.active": "Ενεργά",
-    "export.done": "Ολοκληρωμένα",
-    "export.history": "Ιστορικό",
-    "export.txt": "⬇️ TXT",
-    "export.csv": "⬇️ CSV",
-    "export.grouped_note": "Το TXT ομαδοποιείται με ετικέτες.",
-    "export.ungrouped": "Χωρίς ετικέτα",
-    "aria.group": "Ορισμός ομάδας",
-    "prompt.group": "Ομάδα / ετικέτα (κενό = αφαίρεση):",
-    "toast.exported": "Έγινε εξαγωγή.",
-    "toast.group_set": "Ομάδα ορίστηκε: {group}",
-    "toast.group_cleared": "Η ομάδα αφαιρέθηκε.",
-    "toast.prio_set": "Προτεραιότητα: {prio}",
-    "toast.prio_cleared": "Η προτεραιότητα αφαιρέθηκε.",
-
-  "exclamations": [
-    "Κοίτα:",
-    "Μπαμ:",
-    "Ορίστε:",
-    "Λοιπόν:",
-    "Μάντεψε:",
-    "Ανατροπή!",
-    "Σου έκατσε:",
-    "Πάμε:",
-    "Τα-νταμ:",
-    "Et voilà:"
-  ]
-},
-
-"nl": {
-  "lang.name": "🇳🇱 NL",
-  "lang.label": "Taal",
-  "flavour.text": "Hoi, laten we een project uitkiezen! :)",
-  "input.placeholder": "Voer de projectnaam in",
-  "btn.add": "Toevoegen",
-  "btn.import": "📂 Lijst importeren (txt of csv)",
-  "heading.progress": "Bezig:",
-  "heading.list": "Mijn onafgemaakte projecten:",
-  "btn.clear": "🗑 Alles wissen",
-  "btn.roll": "🎲 Kom maar op!",
-
-  "heading.done": "Gedaan:",
-  "heading.history": "Geschiedenis:",
-  "btn.clear_done": "🧹 «Gedaan» wissen",
-  "btn.clear_history": "🗑 Geschiedenis wissen",
-  "btn.copy_history": "📋 Geschiedenis kopiëren",
-  "btn.mark_done": "✅ Markeren als gedaan",
-  "btn.back": "↩️ Terug",
-  "btn.copy": "📋 Kopiëren",
-  "btn.undo": "Ongedaan maken",
-
-  "help.btn": "❓ Hoe werkt het",
-  "help.title": "Zo gebruik je RandomiseMe",
-  "help.body": "1. Voeg projecten handmatig toe of importeer een .txt/.csv-lijst.<br><br>2. Tik op 🎲 om willekeurig één project te kiezen. Het gekozen item gaat automatisch naar <b>Bezig</b>.<br><br>3. ✅ markeert als gedaan, ↩️ zet terug naar de actieve lijst.<br><br>Geïmporteerde lijsten mogen gescheiden zijn door komma’s, puntkomma’s, regeleinden of tabs.<br><br>4. Gebruik ☆/⭐ om prioriteit te zetten (hoger = vaker gekozen).<br><br>5. 🗑 wist de actieve lijst (Klaar & Geschiedenis blijven).<br><br>Let op: je lijst wordt lokaal in je browser opgeslagen. Als je de sitegegevens wist, ben je alles kwijt.",
-  "help.update_hint": "Als de app op het startscherm niet goed wordt bijgewerkt:",
-  "help.reload": "🔄 App opnieuw laden",
-
-    "iconpicker.note": "Na wijziging: opnieuw installeren/toevoegen.",
-    "iconpicker.title": "Icoonkleur (installatie)",
-  "footer.created": "RandomiseMe! – gemaakt door: Nico Siedler",
-  "footer.license": "Versie 0.9a 02/2026 gepubliceerd onder GPL3",
-
-  "confirm.clear": "Alle actieve projecten wissen? («Gedaan» en geschiedenis blijven behouden.)",
-  "confirm.clear_done": "De lijst «Gedaan» wissen?",
-  "confirm.clear_history": "De geschiedenis wissen?",
-
-  "alert.no_projects": "Er zijn nog geen projecten toegevoegd!",
-  "alert.import_finished": "Import voltooid: nieuwe projecten toegevoegd — {count}.",
-  "alert.import_restored": "(+{count} hersteld)",
-  "alert.nothing_to_copy": "Er is nog niets om te kopiëren.",
-
-  "toast.copied": "Gekopieerd naar het klembord.",
-  "toast.deleted": "Verwijderd: {name}",
-  "toast.done": "Gemarkeerd als gedaan: {name}",
-  "toast.restored": "Hersteld: {name}",
-  "toast.cleared_active": "Actieve lijst gewist.",
-  "toast.cleared_done": "Lijst «Gedaan» gewist.",
-  "toast.cleared_history": "Geschiedenis gewist.",
-
-  "history.roll": "Gekozen",
-  "history.done": "Gedaan",
-  "history.restore": "Hersteld",
-  "history.delete": "Verwijderd",
-
-  "aria.delete": "Verwijderen",
-  "aria.done": "Markeren als gedaan",
-  "aria.restore": "Herstellen",
-  "aria.copy": "Kopiëren",
-  "aria.back": "Terug naar actief",
-  "aria.prio": "Prioriteit",
-  "aria.undo": "Ongedaan maken",
-
-    "btn.export": "⬇️ Exporteren",
-    "export.title": "Exporteren",
-    "export.hint": "Kies wat je wilt exporteren:",
-    "export.progress": "Bezig",
-    "export.active": "Actief",
-    "export.done": "Voltooid",
-    "export.history": "Geschiedenis",
-    "export.txt": "⬇️ TXT",
-    "export.csv": "⬇️ CSV",
-    "export.grouped_note": "TXT wordt per tags gegroepeerd.",
-    "export.ungrouped": "Zonder tag",
-    "aria.group": "Groep instellen",
-    "prompt.group": "Groep / tag (leeg = verwijderen):",
-    "toast.exported": "Geëxporteerd.",
-    "toast.group_set": "Groep ingesteld: {group}",
-    "toast.group_cleared": "Groep verwijderd.",
-    "toast.prio_set": "Prioriteit: {prio}",
-    "toast.prio_cleared": "Prioriteit verwijderd.",
-
-  "exclamations": [
-    "Kijk:",
-    "Bam:",
-    "Hier:",
-    "Nou dan:",
-    "Raad eens:",
-    "Wat een wending:",
-    "Jij boft:",
-    "Kom op:",
-    "Ta-da:",
-    "Et voilà:"
-  ]
-},
-
-  "tr": {
-  "lang.name": "🇹🇷 TR",
-  "lang.label": "Dil",
-  "flavour.text": "Merhaba, hadi bir proje seçelim! :)",
-  "input.placeholder": "Proje adını gir",
-  "btn.add": "Ekle",
-  "btn.import": "📂 Listeyi içe aktar (txt veya csv)",
-  "heading.progress": "Devam ediyor:",
-  "heading.list": "Bitmemiş projelerim:",
-  "btn.clear": "🗑 Hepsini temizle",
-  "btn.roll": "🎲 Haydi!",
-
-  "heading.done": "Tamamlananlar:",
-  "heading.history": "Geçmiş:",
-  "btn.clear_done": "🧹 «Tamamlananlar»ı temizle",
-  "btn.clear_history": "🗑 Geçmişi temizle",
-  "btn.copy_history": "📋 Geçmişi kopyala",
-  "btn.mark_done": "✅ Tamamlandı olarak işaretle",
-  "btn.back": "↩️ Geri",
-  "btn.copy": "📋 Kopyala",
-  "btn.undo": "Geri al",
-
-  "help.btn": "❓ Nasıl kullanılır",
-  "help.title": "RandomiseMe nasıl kullanılır",
-  "help.body": "1. Projeleri elle ekle veya .txt/.csv listesini içe aktar.<br><br>2. Rastgele bir proje seçmek için 🎲’ye dokun. Seçilen öğe otomatik olarak <b>Devam ediyor</b> bölümüne taşınır.<br><br>3. ✅ tamamlandı yapar, ↩️ etkin listeye geri gönderir.<br><br>İçe aktarılan listeler virgül, noktalı virgül, satır sonu veya sekme ile ayrılabilir.<br><br>4. ☆/⭐ ile öncelik ayarla (daha yüksek = daha sık seçilir).<br><br>5. 🗑 etkin listeyi sıfırlar (Tamamlananlar ve Geçmiş kalır).<br><br>Not: listen tarayıcında yerel olarak saklanır. Bu sitenin verilerini silersen liste kaybolur.",
-  "help.update_hint": "Ana ekrandaki uygulama doğru şekilde güncellenmiyorsa:",
-  "help.reload": "🔄 Uygulamayı yeniden yükle",
-
-    "iconpicker.note": "Değişiklikten sonra yeniden yükle/ekle.",
-    "iconpicker.title": "Simge rengi (yükleme)",
-  "footer.created": "RandomiseMe! – yapan: Nico Siedler",
-  "footer.license": "Sürüm 0.9a 02/2026 GPL3 ile yayımlandı",
-
-  "confirm.clear": "Tüm aktif projeler temizlensin mi? («Tamamlananlar» ve geçmiş kalacak.)",
-  "confirm.clear_done": "«Tamamlananlar» listesi temizlensin mi?",
-  "confirm.clear_history": "Geçmiş temizlensin mi?",
-
-  "alert.no_projects": "Henüz proje eklenmedi!",
-  "alert.import_finished": "İçe aktarma tamamlandı: yeni eklenen proje sayısı — {count}.",
-  "alert.import_restored": "(+{count} geri yüklendi)",
-  "alert.nothing_to_copy": "Henüz kopyalanacak bir şey yok.",
-
-  "toast.copied": "Panoya kopyalandı.",
-  "toast.deleted": "Silindi: {name}",
-  "toast.done": "Tamamlandı olarak işaretlendi: {name}",
-  "toast.restored": "Geri yüklendi: {name}",
-  "toast.cleared_active": "Aktif liste temizlendi.",
-  "toast.cleared_done": "«Tamamlananlar» listesi temizlendi.",
-  "toast.cleared_history": "Geçmiş temizlendi.",
-
-  "history.roll": "Seçildi",
-  "history.done": "Tamamlandı",
-  "history.restore": "Geri yüklendi",
-  "history.delete": "Silindi",
-
-  "aria.delete": "Sil",
-  "aria.done": "Tamamlandı olarak işaretle",
-  "aria.restore": "Geri yükle",
-  "aria.copy": "Kopyala",
-  "aria.back": "Etkin listeye dön",
-  "aria.prio": "Öncelik",
-  "aria.undo": "Geri al",
-
-    "btn.export": "⬇️ Dışa aktar",
-    "export.title": "Dışa aktar",
-    "export.hint": "Neyi dışa aktarmak istiyorsun:",
-    "export.progress": "Devam ediyor",
-    "export.active": "Aktif",
-    "export.done": "Tamamlanan",
-    "export.history": "Geçmiş",
-    "export.txt": "⬇️ TXT",
-    "export.csv": "⬇️ CSV",
-    "export.grouped_note": "TXT etiketlere göre gruplanır.",
-    "export.ungrouped": "Etiketsiz",
-    "aria.group": "Grup ayarla",
-    "prompt.group": "Grup / etiket (boş = kaldır):",
-    "toast.exported": "Dışa aktarıldı.",
-    "toast.group_set": "Grup ayarlandı: {group}",
-    "toast.group_cleared": "Grup kaldırıldı.",
-    "toast.prio_set": "Öncelik: {prio}",
-    "toast.prio_cleared": "Öncelik kaldırıldı.",
-
-  "exclamations": [
-    "Bak:",
-    "Bam:",
-    "Al bakalım:",
-    "Pekâlâ:",
-    "Tahmin et:",
-    "Ne ters köşe:",
-    "Şanslısın:",
-    "Haydi:",
-    "Ta-daa:",
-    "Et voilà:"
-  ]
-}
-    
+  }
 };
 
   const FALLBACK_LANG = "en";
 
-  function normalizeLang(lang){
-    if(!lang) return FALLBACK_LANG;
+  function normalizeLang(lang) {
+    if (!lang) return FALLBACK_LANG;
     lang = lang.toLowerCase();
-    // exact match
-    if(TRANSLATIONS[lang]) return lang;
-    // match base, e.g. "pt-br" -> "pt"
+    if (TRANSLATIONS[lang]) return lang;
     const base = lang.split("-")[0];
-    // some browsers use "no" for Norwegian
-    if(base === "no") return "nb";
-    if(TRANSLATIONS[base]) return base;
+    if (TRANSLATIONS[base]) return base;
     return FALLBACK_LANG;
   }
 
-  function detectLang(){
+  function detectLang() {
     const saved = localStorage.getItem("lang");
-    if(saved) return normalizeLang(saved);
+    if (saved) return normalizeLang(saved);
     const nav = (navigator.languages && navigator.languages.length ? navigator.languages[0] : navigator.language) || FALLBACK_LANG;
     return normalizeLang(nav);
   }
 
   let currentLang = detectLang();
 
-  function t(key, vars){
+  function t(key, vars) {
     const dict = TRANSLATIONS[currentLang] || TRANSLATIONS[FALLBACK_LANG];
     let val = (dict && dict[key] !== undefined) ? dict[key] : (TRANSLATIONS[FALLBACK_LANG][key] !== undefined ? TRANSLATIONS[FALLBACK_LANG][key] : key);
 
-    if(Array.isArray(val)) return val;
+    if (Array.isArray(val)) return val;
 
-    if(typeof val === "string" && vars){
-      Object.keys(vars).forEach(k=>{
-        val = val.replaceAll("{"+k+"}", String(vars[k]));
+    if (typeof val === "string" && vars) {
+      Object.keys(vars).forEach(k => {
+        val = val.replaceAll("{" + k + "}", String(vars[k]));
       });
     }
     return val;
   }
 
-  function applyTranslations(){
+  function applyTranslations() {
     document.documentElement.setAttribute("lang", currentLang);
 
-    document.querySelectorAll(".iconish").forEach(el=>{
-  const icon = (el.getAttribute("data-icon") || "").trim();
-  let label = (el.getAttribute("aria-label") || el.textContent || "").trim();
-  if(icon) label = label.replace(icon, "").trim();
-  el.setAttribute("data-label", label);
-});
-
-    document.querySelectorAll("[data-i18n]").forEach(el=>{
-      const key = el.getAttribute("data-i18n");
-      el.textContent = t(key);
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      el.textContent = t(el.getAttribute("data-i18n"));
     });
 
-    document.querySelectorAll("[data-i18n-html]").forEach(el=>{
-      const key = el.getAttribute("data-i18n-html");
-      el.innerHTML = t(key);
+    document.querySelectorAll("[data-i18n-html]").forEach(el => {
+      el.innerHTML = t(el.getAttribute("data-i18n-html"));
     });
 
-    document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{
-      const key = el.getAttribute("data-i18n-placeholder");
-      el.setAttribute("placeholder", t(key));
+    document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+      el.setAttribute("placeholder", t(el.getAttribute("data-i18n-placeholder")));
     });
 
-    document.querySelectorAll("[data-i18n-aria]").forEach(el=>{
-      const key = el.getAttribute("data-i18n-aria");
-      el.setAttribute("aria-label", t(key));
+    document.querySelectorAll("[data-i18n-aria]").forEach(el => {
+      el.setAttribute("aria-label", t(el.getAttribute("data-i18n-aria")));
     });
 
-    const select = document.getElementById("langSelect");
-    if(select){
-      select.value = currentLang;
-    }
+    const toggle = document.getElementById("langToggle");
+    if (toggle) toggle.textContent = currentLang.toUpperCase();
   }
 
-  function setLang(lang){
+  function setLang(lang) {
     currentLang = normalizeLang(lang);
     localStorage.setItem("lang", currentLang);
     applyTranslations();
+    document.dispatchEvent(new CustomEvent("langchange", { detail: { lang: currentLang } }));
   }
 
-  window.i18n = { t, setLang, getLang: ()=>currentLang, available: ()=>Object.keys(TRANSLATIONS) };
+  function toggleLang() {
+    const next = currentLang === "en" ? "de" : "en";
+    setLang(next);
+  }
 
-  document.addEventListener("DOMContentLoaded", ()=>{
-    const select = document.getElementById("langSelect");
-    if(select){
-      select.addEventListener("change", (e)=> setLang(e.target.value));
-      select.value = currentLang;
+  window.i18n = { t, setLang, getLang: () => currentLang, available: () => Object.keys(TRANSLATIONS), toggleLang };
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.getElementById("langToggle");
+    if (toggle) {
+      toggle.addEventListener("click", () => toggleLang());
     }
     applyTranslations();
   });

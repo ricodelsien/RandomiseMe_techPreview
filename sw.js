@@ -1,39 +1,22 @@
 /* RandomiseMe! Service Worker */
-const CACHE_VERSION = 'randomiseme-v0.9a-2026-02-17';
+const CACHE_VERSION = 'randomiseme-v1.0-2026-02-28';
 const ASSETS = [
   './',
   './index.html',
   './style.css',
   './script.js',
   './i18n.js',
+  './firebase-config.js',
   './manifest.json',
-  './manifest-blue.json',
-  './manifest-green.json',
-  './manifest-orange.json',
-  './manifest-pink.json',
-  './manifest-violet.json',
-  './manifest-yellow.json',
   './icon.png',
-  './icon-192.png',
-  './icon/icon_blue.png',
-  './icon/icon_green.png',
-  './icon/icon_orange.png',
-  './icon/icon_pink.png',
-  './icon/icon_violet.png',
-  './icon/icon_yellow.png',
-  './icon/icon_blue-192.png',
-  './icon/icon_green-192.png',
-  './icon/icon_orange-192.png',
-  './icon/icon_pink-192.png',
-  './icon/icon_violet-192.png',
-  './icon/icon_yellow-192.png',
-  './logo/Randomise.png',
-  './RandomiseMe.png'
+  './icon-192.png'
 ];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_VERSION).then((cache) => cache.addAll(ASSETS)).then(() => self.skipWaiting())
+    caches.open(CACHE_VERSION)
+      .then((cache) => cache.addAll(ASSETS))
+      .then(() => self.skipWaiting())
   );
 });
 
@@ -48,7 +31,6 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const req = event.request;
 
-  // Network-first for navigation so updates come through
   if (req.mode === 'navigate') {
     event.respondWith(
       fetch(req)
@@ -62,7 +44,6 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Cache-first for everything else
   event.respondWith(
     caches.match(req).then((cached) =>
       cached ||
